@@ -13,7 +13,7 @@ address, em, i {font-style: normal;}
 a:focus {outline: none;}
 button:focus {outline: none;}
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1420px){
     .menuOpen {display: none;}
     .inner-header .gnb {width: 30%;}
     .inner-header .tnb {width: 12%;}
@@ -36,15 +36,38 @@ button:focus {outline: none;}
     footer .bottom ul.right {width: 222px; margin-left: 20px;} 
 }
 
-/* @media screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
-    .skin-concern {
-        height: 280vh;
-        padding: 100px 0 0;
-    }
-} */
-@media screen and (max-width: 1350px){.intro {padding: 466px 0 200px; height: auto;}
-    /* .intro {padding: 280px 0 0; height: 52vh;} */
+@media screen and (max-width: 1350px){
+    .intro {padding: 466px 0 200px; height: auto;}
     .intro .intro-inner {margin: 0 auto; width: 100%; height: 142px; text-align: center;}
+}
+
+@media screen and (max-width: 1100px){
+    .tit {font-size: 53px;}
+    .txt {font-size: 23px;}
+    .inner-header nav {padding: 39px 65px 70px;}
+    .inner-header .gnb {width: 32%;}
+    .inner-header .tnb {width: 13%;}
+    header.fixed-state .inner-header nav {padding: 39px 65px 70px;}
+    .intro {padding: 466px 0 200px; height: auto;}
+    .intro .intro-inner {margin: 0 auto; width: 100%; height: 142px; text-align: center;}
+    .model .model-inner .right-txt {top: 0%;}
+    .model .model-inner .right-txt .tit {font-size: 47px;}
+    .model .model-inner .right-txt .txt {font-size: 20px;}
+    .model .model-inner .middle .vertical {width: 18%; top: 0%; left: 12%; animation: verticalAni 4s ease-out forwards;}
+    .model .model-inner .middle .her {width: 65%;; top: 18%;}
+    .model .model-inner .bottom {width: 90%; margin: 1300px auto 120px;}
+    .model .model-inner .bottom .renewal {width: 80%; margin: 0 auto;}
+    .model .model-inner .bottom .renewal img {margin-bottom: -75px;}
+    .model .model-inner .bottom .txt {margin-bottom: 50px;}
+    .model .model-inner .bottom .btn {width: 86%; height: 90px; font-size: 28px;}
+    .model .model-inner .bottom .btn span {font-size: 16px; margin-top: 1px;}
+    .skin-concern .concern-inner .text-box .tit .index1024::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .skin-concern .concern-list .pore {position: absolute; left: 26%; top: 1200px;}
+    .theraphy .theraphy-inner .title p.a {left: 110px; top: 20px;}
+    .theraphy .theraphy-inner .title p.b {right: 110px; top: 20px;}
+    .theraphy .theraphy-inner .title span {width: 180px; height: 1px; left: 350px; top: 130px;}
+    .day6 .day-inner .right {width: 60%; margin-top: 120px;}
+    .day6 .day-inner .left p.txt {color:#747273; margin-top: 10px; font-size: 20px;}
 }
 
 
@@ -55,7 +78,7 @@ button:focus {outline: none;}
     .inner-header nav {padding: 39px 65px 70px;}
     header.fixed-state .inner-header nav {padding: 39px 65px 70px;}
     .inner-header .gnb {width:30%;}
-    .inner-header .tnb {width: 15%;}
+    .inner-header .tnb {width: 13.5%;}
     .inner-header .tnb .icon {display: none;}
     .visual .img-bottom {bottom: -25%;}
     .intro {padding: 466px 0 200px; height: auto;}
@@ -84,7 +107,7 @@ button:focus {outline: none;}
     .moving-txt .marquee {font-size: 280px;}
 
     .skin-concern {background: #1a1a1e !important;}
-    .skin-concern {padding: 200px 0 310px; height: 280vh;}
+    .skin-concern {padding: 200px 0 310px; height: 380vh;}
     .skin-concern .concern-inner {max-width: 1024px;}
     .skin-concern .concern-inner .text-box {width: 90%;}
     .skin-concern .concern-inner .text-box .tit .index1024::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
@@ -135,6 +158,86 @@ button:focus {outline: none;}
     footer .bottom ul.right .time {font-size: 16px;}
 }
 
+@media screen and (max-width: 950px){
+    .menuOpen {display: none;}
+    .tit {font-size: 50px;}
+    .txt {font-size: 22px;}
+    header.fixed-state .inner-header nav {padding: 39px 65px 70px;}
+    .intro {padding: 406px 0 200px; height: auto;}
+    .product-title {top: 62%;}
+    .skin-concern {padding: 200px 0 310px; height: 390vh;}
+    .theraphy {margin-top: -2px;}
+    .theraphy .theraphy-inner .title span {width: 160px; height: 1px; left: 280px; top: 130px;}
+}
+
+@media screen and (max-width: 885px){
+    .menuOpen {display: none;}
+    .tit {font-size: 54px; line-height: 110%;}
+    .txt {font-size: 24px;}
+    header.fixed-state .inner-header nav {padding: 39px 65px 70px;}
+    .intro {padding: 402px 90px 150px; width: 100%;}
+    .intro .intro-inner {margin: 0 auto; width: 100%; height: 300px; text-align: center;}
+    .intro .intro-inner .tit .index768 {display: block; width: 100%;}
+    .intro .intro-inner .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .intro .intro-inner .txt .index390::before {content: "\A"; white-space: pre; display: block;}
+    .intro .intro-inner .txt br {display: none;}
+    .theraphy .theraphy-inner .title p.a {left: 51px; top: 23%;}
+    .theraphy .theraphy-inner .title p.b {right: 51px; top: 23%;}
+    .theraphy .theraphy-inner .title span {width: 12%; height: 1px; left: 280px; top: 53%;} 
+    .day6 .day-inner .left {width: 38%;}
+}
+
+@media screen and (max-width: 820px){
+    .menuOpen {display: none;}
+    .tit {font-size: 54px; line-height: 110%;}
+    .txt {font-size: 24px;}
+    .inner-header .gnb {width: 34%;}
+    .inner-header .tnb {width: 15%;}
+    .inner-header .logo a {display: block; width: 140px; height: 26px; cursor: pointer;}
+    header.fixed-state .inner-header nav {padding: 39px 65px 70px;}
+    .intro {padding: 402px 90px 150px; width: 100%;}
+    .intro .intro-inner {margin: 0 auto; width: 100%; height: 300px; text-align: center;}
+    .intro .intro-inner .tit .index768 {display: block; width: 100%;}
+    .intro .intro-inner .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .intro .intro-inner .txt .index390::before {content: "\A"; white-space: pre; display: block;}
+    .intro .intro-inner .txt br {display: none;}
+    .model .model-inner .right-txt {top: 27.5%; left: 0%; text-align: center;}
+    .model .model-inner .right-txt .tit .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .right-txt .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .middle .vertical {width: 18%; top: 16%; left:4%;}
+    .model .model-inner .middle .her {width: 70%; top: 38%; right: 5%;}
+    .model .model-inner .bottom .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .skin-concern .concern-list .moisturizing {right: 7%; top: 70px;}
+    .skin-concern .concern-list .pore {left: 30%; top: 1200px;}
+    .theraphy .theraphy-inner .title p.a {left: 51px; top: 23%;}
+    .theraphy .theraphy-inner .title p.b {right: 51px; top: 23%;}
+    .theraphy .theraphy-inner .title span {width: 9%; height: 1px; left: 265px; top: 53%;} 
+    .day6 {background: #F0E5E0 !important;}
+    .day6 .day-inner {display: flex; flex-direction: column; align-items: center; margin: 0 auto; height: 1878px;}
+    .day6 .day-inner .left .day {width: 400px; height: 604px; position:absolute; top: 6%; left: 8%;}
+    .day6 .day-inner .left .textbox {position:absolute; top: 84%; left: 10%; text-align: center;}
+    .day6 .day-inner .left h2.tit {font-size: 54px; line-height: 110%;} 
+    .day6 .day-inner .left p.txt {font-size: 24px; margin-top: -5px;}
+    .day6 .day-inner .left p.txt .hide1024 {display: none;}
+    .day6 .day-inner .left p.txt b {display: inline;}
+    .day6 .day-inner .right {width: 700px; height: 925px; margin-top: 80%; z-index: 0; top: 8%; left: 6%}
+    .day6 .day-inner .right img {display: block; width: 85%; height: 100%; position: absolute; margin: auto;}
+    footer .top {background-color: #F0E5E0 !important; z-index: 1;}
+    footer .top::before {content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #F0E5E0; z-index: -1;}
+    footer .top h3 {padding-top: 100px; background: transparent; background: #F0E5E0; color: #1a1a1e;}
+    footer .bottom {padding: 355px 50px 100px 50px; position: relative;}
+    footer .bottom .fo-ble {position: absolute; top: 20%; left: 30%; width: 303px; height: 170px;}
+    footer .bottom ul.left {width: 100%;}
+    footer .bottom ul li {font-size: 16px;}
+    footer .bottom ul.right {width: 50%; margin-left: 66px;} 
+    footer .bottom ul.right .contact {font-size: 25px; margin-bottom: 10px;}
+    .cus::after {content: "\A"; white-space: pre;}
+    footer .bottom ul.right .contact .cus {font-size: 18px;}
+    footer .bottom ul.right .contact .none {display: none;}
+    footer .bottom ul.right .time {font-size: 16px;}
+}
+
+
 @media screen and (max-width: 768px){
     .tit {font-size: 54px; line-height: 110%;}
     .txt {font-size: 24px;}
@@ -166,7 +269,7 @@ button:focus {outline: none;}
     .menuOpen .menuWrap.on {width: 100%; opacity: 1; left: 0; transition: all 0.9s;}
     .menuOpen:has(.menuWrap.on) .mobile-menu-toggle {opacity: 0; visibility: hidden; transition: opacity 0.3s;}
 
-    .intro {padding: 402px 90px 150px; width: 100%;}
+    .intro {padding: 402px 30px 150px; width: 100%;}
     .intro .intro-inner {margin: 0 auto; width: 100%; height: 300px; text-align: center;}
     .intro .intro-inner .tit .index768 {display: block; width: 100%;}
     .intro .intro-inner .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
@@ -263,9 +366,102 @@ button:focus {outline: none;}
     .tit, .txt {overflow: visible;}
 }
 
-@media screen and (max-width: 390px){
+@media screen and (max-width: 610px){
+    .tit {font-size: 45px; line-height: 110%;}
+    .txt {font-size: 19px;}
+    .inner-header .logo {position: absolute; left: 50%; top: 41%; transform: translateX(-50%); margin:0; z-index: 10; opacity: 0; transition: opacity 0.4s ease;}
+    .inner-header .logo a {display: block; width: 130px; height: 22px; cursor: pointer;}
+    .inner-header .tnb {width: 10.5%; position: absolute; top: 37%; right: 5%; opacity: 0.7;}
+    .inner-header .tnb li {display: none;}
+    .inner-header .tnb .icon {display: inline-block; width: 26px; height: 26px;}
+
+    .intro {padding: 402px 0px 150px; width: 100%;}
+    .intro .intro-inner .tit .index768 {display: block; width: 100%;}
+    .intro .intro-inner .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .intro .intro-inner .txt .index390::before {content: "\A"; white-space: pre; display: block;}
+    .intro .intro-inner .txt br {display: none;}
+    .product-title {font-size: 150px; top: 79%; left: 0%;}
+    .scroll-container + section {
+        position: relative;
+        z-index: 5;
+    }
+    .model .model-inner .right-txt {top: 27%; left: 0%; text-align: center;}
+    .model .model-inner .right-txt .tit .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .right-txt .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .middle .vertical {width: 18%; top: 14.5%; left:4%;}
+    .model .model-inner .middle .her {width: 70%; top: 39%; right: 5%;}
+    .model .model-inner .bottom {width: 90%; margin: 1200px auto 80px;}
+    .model .model-inner .bottom .renewal {margin-top: 200px; width: 100%; margin: auto;}
+    .model .model-inner .bottom .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .bottom .btn {font-size: 20px;}
+    
+    .skin-concern span.label {font-size: 16px; margin-bottom: 10px;}
+    .skin-concern .concern-list h3 {font-size: 150px; letter-spacing: 3%;}
+    .skin-concern {padding: 150px 0; height: 390vh;} 
+    .skin-concern .concern-inner {width: 100%;}
+    .skin-concern .concern-inner .text-box {width: 100%;}
+    .skin-concern .concern-inner .text-box .tit .none::before {display: none;}
+    .skin-concern .concern-inner .text-box .tit .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .skin-concern .concern-list .moisturizing {right: 7%; top: 50px;}
+    .skin-concern .concern-list .moisturizing .left {right: 383px;}
+    .skin-concern .concern-list .skinTexture {left: 6%; top: 701px;}
+    .skin-concern .concern-list .skinTexture .left {left: 36%; top: 60%;}
+    .skin-concern .concern-list .pore {left: 30%; top: 1300px;}
+    .skin-concern .concern-list .pore .left {right: 35px; top: 125px;}
+    .skin-concern .concern-list .pore .img-box a {width: 484px; height: 583px;}
+    .skin-concern .concern-list .acne {top: 2000px; left: 39px;}
+    .skin-concern .concern-list .acne .left {left: 72%; bottom: 75px;}
+    .skin-concern .concern-list .elasticity {right: 41px; top: 2700px;} 
+    .skin-concern .concern-list .elasticity .left {right: -70px;}
+
+    .theraphy .theraphy-inner .title p {font-size: 140px;}
+    .theraphy .theraphy-inner .title p.a {left: 48px; top: 23%;}
+    .theraphy .theraphy-inner .title p.b {right: 48px; top: 23%;}
+    .theraphy .theraphy-inner .title span {width: 8%; height: 1px; left: 200px; top: 4%;}  
+
+    .day6 {background: #F0E5E0 !important;}
+    .day6 .day-inner {display: flex; flex-direction: column; align-items: center; margin: 0 auto; height: 1778px;}
+    .day6 .day-inner .left .day {width: 300px; height: 465px; position:absolute; top: 6%; left: 6%;}
+    .day6 .day-inner .left .textbox {position:absolute; top: 75%; left: 2%; text-align: center;}
+    .day6 .day-inner .left h2.tit {font-size: 54px; line-height: 110%;} 
+    .day6 .day-inner .left p.txt {font-size: 24px; margin-top: -5px;}
+    .day6 .day-inner .left p.txt .hide1024 {display: none;}
+    .day6 .day-inner .left p.txt b {display: inline;}
+    .day6 .day-inner .right {width: 568px; height: 780px; margin-top: 78%; z-index: 0; top: 9%; left: 8%}
+    .day6 .day-inner .right img {display: block; width: 85%; height: 100%; position: absolute; margin: auto;}
+
+    .ad .ad-inner {background: #F0E5E0;}
+    .ad .ad-inner video {width: 669px; height: 410px; margin: 0 auto;}
+
+    footer .top {background-color: #F0E5E0 !important; z-index: 1;}
+    footer .top::before {content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #F0E5E0; z-index: -1;}
+    footer .top h3 {padding-top: 100px; background: transparent; background: #F0E5E0; color: #1a1a1e;}
+    footer .bottom {padding: 355px 50px 100px 50px; position: relative;}
+    footer .bottom .fo-ble {position: absolute; top: 20%; left: 30%; width: 303px; height: 170px;}
+    footer .bottom ul.left {width: 100%;}
+    footer .bottom ul li {font-size: 16px;}
+    footer .bottom ul.right {width: 50%; margin-left: 66px;} 
+    footer .bottom ul.right .contact {font-size: 25px; margin-bottom: 10px;}
+    .cus::after {content: "\A"; white-space: pre;}
+    footer .bottom ul.right .contact .cus {font-size: 18px;}
+    footer .bottom ul.right .contact .none {display: none;}
+    footer .bottom ul.right .time {font-size: 16px;}
+
+    .tit.motion b, .txt.motion b, .tit.motion b:nth-child(2), .txt.motion b:nth-child(2), .txt.motion b:nth-child(3) {animation: none; opacity: 1 ; transform: none ;}
+    .tit, .txt {overflow: visible;}
+}
+
+
+@media screen and (max-width: 430px){
     .tit {font-size: 34px; line-height: 100%; letter-spacing: -3%;}
     .txt {font-size: 16px;}
+
+    html, body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important; /* hidden이 강제로 걸려있는지 확인 */
+        height: auto !important;
+        touch-action: auto !important; 
+    }
 
     .inner-header .logo {position: absolute; left: 50%; top: 30%;}
     .inner-header .logo a {display: block; width: 100px; height: 17px; cursor: pointer;}
@@ -274,12 +470,13 @@ button:focus {outline: none;}
     .inner-header .mobile-menu-toggle a span:nth-child(1) {width: 28px; height: 1.3px; top: 28px;}
     .inner-header .mobile-menu-toggle a span:nth-child(2) {width: 28px; height: 1.3px; top: 38px;}
     .inner-header .mobile-menu-toggle a span:nth-child(3) {width: 28px; height: 1.3px; top: 48px;}
-    .inner-header .tnb {width: 10%; position: absolute; top: 29%; right: 11%; opacity: 0.7;}
+    .inner-header .tnb {width: 10%; position: absolute; top: 29%; right: 9%; opacity: 0.7;}
     .inner-header .tnb li {display: none;}
     .inner-header .tnb .icon {display: inline-block; width: 26px; height: 26px; margin-right: 7px;}
 
     .menuOpen {display: block;}
-    .menuOpen .menuWrap {width: 100%; height: 100vh; background: rgba(26, 26, 30, 0.8); z-index: 100; top: 0; right: 0; position: fixed;}
+    .menuOpen .menuWrap {width: 100vw; height: 100vh; background: rgba(26, 26, 30, 0.8); z-index: 100; top: 0; right: 0; position: fixed; transform: translateX(-100%); transition: transform 0.6s ease;}
+    .menuOpen .menuWrap.on {transform: translateX(0);}
     .menuOpen .menuWrap .close {display: block; width: 25px; height: 25px; position: absolute; right: 7%; top: 3.5%;}
     .menuOpen .menuWrap .close img {width: 100%;}
     .menuOpen .menuWrap .menu-tit {font-family: 'El Messiri', sans-serif; font-size: 28px; position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; font-weight: 200;}
@@ -291,24 +488,18 @@ button:focus {outline: none;}
     .menuOpen .menuWrap {width: 0%; opacity: 0; left: -100%; transition: all 0.6s;}
     .menuOpen .menuWrap.on {width: 100%; opacity: 1; left: 0; transition: all 0.9s;}
 
-    .intro {height: 70vh}
     .intro .intro-inner .txt .index768 {display: block; width: 100%;}
     .intro .intro-inner .txt .index390 {display: none;}
     
-
-    .intro {padding: 402px 90px 150px; width: 100%;}
-    .intro .intro-inner {margin: 0 auto; width: 100%; height: 300px; text-align: center;}
+    .intro {padding: 332px 0 0; width: 100%; height: 70dvh;}
+    .intro .intro-inner {margin: 0 auto; width: 100%; height: 155px; text-align: center;}
     .inner-header .logo {top: 30%;}
     .inner-header .logo a {width: 130px; height: 22px;}
     .visual .img-bottom {width: 200px; height: 275px; bottom: -20%; left: 50%;}
 
-    .intro {width: 100%; height: 66vh; padding: 332px 0 0; align-items: center;}
-    .intro .intro-inner {width: 100%; height: 155px;}
-    .intro .intro-inner .txt .index390 {display: none;}
-
-    .scroll-container {max-width: 100%; height: auto; background: #1a1a1e; margin-bottom: -400px;}
-    .scroll-item {height: auto; min-height: auto; position:relative; overflow: hidden; display: block;}
-    .scroll-item__inner {display: flex; flex-direction: column; height: auto; overflow: hidden;}
+    .scroll-container {max-width: 100%; height: auto; background: #1a1a1e; margin-bottom: -100px;}
+    .scroll-item {height: 100vh; min-height: 100vh; position:relative; overflow: visible; display: block;}
+    .scroll-item__inner {display: flex; flex-direction: column; height: 100%; overflow: hidden;}
     .scroll-item .left-sticky {width: 100%; height: 292px;}
     .scroll-item .right-content {overflow: visible; width: 100%; height: 63vh;}
     .scroll-item .right-content ul {padding: 0 98px;}
@@ -338,7 +529,149 @@ button:focus {outline: none;}
     .moving-txt {padding: 80px 0 50px;}
     .moving-txt .marquee {font-size: 120px; margin-bottom: 10px; letter-spacing: 2%;}
 
-    .skin-concern {padding: 100px 0; height: 250vh;}
+    .skin-concern {padding: 100px 0; height: 240dvh;}
+    .skin-concern .concern-inner .text-box {margin: 0 auto 100px;}
+    .skin-concern .text-box .tit .index768.none::before {display: none ;}
+    .skin-concern .text-box .tit .index390::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .skin-concern .skin .left {width: 50%;}
+    .skin-concern span.label {font-size: 12px; margin-bottom: 10px;}
+    .skin-concern .concern-list h3 {font-size: 74px; letter-spacing: 3%;}
+    
+    .skin-concern .concern-list .moisturizing {right: 8%; top: 50px;}
+    .skin-concern .concern-list .moisturizing .left {left: -90%; top: 90px;}
+    .skin-concern .concern-list .moisturizing .img-box a {width: 167px; height: 253px;}
+
+    .skin-concern .concern-list .skinTexture {left: 6%; top: 450px;}
+    .skin-concern .concern-list .skinTexture .img-box a {width: 142px; height: 225px;}
+    .skin-concern .concern-list .skinTexture .left {left: 57%; top: 50px;} 
+
+    .skin-concern .concern-list .pore {left: 28%; top: 800px;}
+    .skin-concern .concern-list .pore .left {left: -36%; top: 0px;}
+    .skin-concern .concern-list .pore .img-box a {width: 239px; height: 288px;}
+
+    .skin-concern .concern-list .acne {top: 1180px; left: 7%;}
+    .skin-concern .concern-list .acne .img-box a {width: 268px; height: 270px;}
+    .skin-concern .concern-list .acne .left {left: 81%; bottom: 90px;}
+    
+    .skin-concern .concern-list .elasticity {right: 35px; top: 1550px;}
+    .skin-concern .concern-list .elasticity .img-box a {width: 133px; height: 205px;}
+    .skin-concern .concern-list .elasticity .left {left: -137%; top: 40px;}
+
+    .theraphy .theraphy-inner .title {padding: 0 0 200px;}
+    .theraphy .theraphy-inner .title p {font-size: 89px;}
+    .theraphy .theraphy-inner .title p.a {left: 28px; top: 23%;}
+    .theraphy .theraphy-inner .title p.b {right: 28px; top: 23%;}
+    .theraphy .theraphy-inner .title span {width: 10%; left: 33%; top: 47%;}
+    .theraphy .marquee-content {margin-right: 50px;}
+    .theraphy ul li .txt-box h3 {font-size: 50px;}
+    .theraphy ul li .txt-box p {font-size: 20px;}
+    .theraphy ul li {width: auto; margin-right: 50px;}
+    .theraphy ul li a.width { width: 207px; height: 157px;}
+    .theraphy ul li a.height {width: 155px; height: 208px;}
+    
+    .day6 .day-inner {height: 972px; margin: 0 auto 100px; display: flex; flex-direction: column; align-items: center; background: #F0E5E0;}
+    .day6 .day-inner .left .day {width: 222px; height: 336px; position:absolute; top: 7%;}
+    .day6 .day-inner .left .day img {width: 100%;}
+    .day6 .day-inner .left .textbox {width: 100%; position:absolute; top: 85%; left: 0%; text-align: center;}
+    .day6 .day-inner .left h2.tit {font-size: 32px;} 
+    .day6 .day-inner .left p.txt {font-size: 16px;}
+    .day6 .day-inner .right {width: 330px; height: 443px; position: absolute; top: 14%; left: 6%;}
+    .day6 .day-inner .right img {display: block; width: 90%; height: 100%;; margin: auto;}
+
+    .ad .ad-inner video {width: 330px; height: 202px;}
+
+    footer .top h3 {font-size: 105px;  padding-top: 130px; background: transparent; clip-path: inset(0 100% 0 0); -webkit-clip-path: inset(0 100% 0 0); transition: none;}
+    footer .bottom {padding: 230px 20px 80px 20px; position: relative;}
+    footer .bottom .fo-ble {position: absolute; top: 20%; left: 25%; width: 195px; height: 109px;}
+    footer .bottom ul.left {width: 100%;}
+    footer .bottom ul li {font-size: 10px;}
+    footer .bottom ul.right {width: 60%; margin-left: 20px;} 
+    footer .bottom ul.right .contact {font-size: 16px; margin-bottom: 5px;}
+    .cus::after {content: "\A"; white-space: pre;}
+    footer .bottom ul.right .contact .cus {font-size: 12px;}
+    footer .bottom ul.right .contact .none {display: none;}
+    footer .bottom ul.right .time {font-size: 10px;}
+}
+
+
+@media screen and (max-width: 390px){
+    .tit {font-size: 34px; line-height: 100%; letter-spacing: -3%;}
+    .txt {font-size: 16px;}
+
+    html, body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important; /* hidden이 강제로 걸려있는지 확인 */
+        height: auto !important;
+        touch-action: auto !important; 
+    }
+
+    .inner-header .logo {position: absolute; left: 50%; top: 30%;}
+    .inner-header .logo a {display: block; width: 100px; height: 17px; cursor: pointer;}
+    .inner-header .mobile-menu-toggle {top: 7%; left: 0%;} 
+    .inner-header .mobile-menu-toggle a {display: block; width: 50px; height: 50px;}
+    .inner-header .mobile-menu-toggle a span:nth-child(1) {width: 28px; height: 1.3px; top: 28px;}
+    .inner-header .mobile-menu-toggle a span:nth-child(2) {width: 28px; height: 1.3px; top: 38px;}
+    .inner-header .mobile-menu-toggle a span:nth-child(3) {width: 28px; height: 1.3px; top: 48px;}
+    .inner-header .tnb {width: 10%; position: absolute; top: 29%; right: 11%; opacity: 0.7;}
+    .inner-header .tnb li {display: none;}
+    .inner-header .tnb .icon {display: inline-block; width: 26px; height: 26px; margin-right: 7px;}
+
+    .menuOpen {display: block;}
+    .menuOpen .menuWrap {width: 100vw; height: 100vh; background: rgba(26, 26, 30, 0.8); z-index: 100; top: 0; right: 0; position: fixed; transform: translateX(-100%); transition: transform 0.6s ease;}
+    .menuOpen .menuWrap.on {transform: translateX(0);}
+    .menuOpen .menuWrap .close {display: block; width: 25px; height: 25px; position: absolute; right: 7%; top: 3.5%;}
+    .menuOpen .menuWrap .close img {width: 100%;}
+    .menuOpen .menuWrap .menu-tit {font-family: 'El Messiri', sans-serif; font-size: 28px; position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; font-weight: 200;}
+    .menuOpen .menuWrap .menu-tit li {margin-bottom: 15px;}
+    .menuOpen .menuWrap .menu-tit li a {display: inline-block; position: relative; transition: all 0.3s; color: rgba(234,234,234,0.6);}
+    .menuOpen .menuWrap .menu-tit li a:hover {color: #eaeaea; opacity: 1; transform: scale(1.1);}
+    .menuOpen .menuWrap .menu-tit:hover li a:not(:hover) {opacity: 0.5;}
+    .menuOpen .menuWrap .menu-tit li.menu-margin {margin-bottom: 30px;}
+    .menuOpen .menuWrap {width: 0%; opacity: 0; left: -100%; transition: all 0.6s;}
+    .menuOpen .menuWrap.on {width: 100%; opacity: 1; left: 0; transition: all 0.9s;}
+
+    .intro .intro-inner .txt .index768 {display: block; width: 100%;}
+    .intro .intro-inner .txt .index390 {display: none;}
+    
+    .intro {padding: 332px 0 0; width: 100%; height: 70dvh;}
+    .intro .intro-inner {margin: 0 auto; width: 100%; height: 155px; text-align: center;}
+    .inner-header .logo {top: 30%;}
+    .inner-header .logo a {width: 130px; height: 22px;}
+    .visual .img-bottom {width: 200px; height: 275px; bottom: -20%; left: 50%;}
+
+    .scroll-container {max-width: 100%; height: auto; background: #1a1a1e; margin-bottom: -100px;}
+    .scroll-item {height: 100vh; min-height: 100vh; position:relative; overflow: visible; display: block;}
+    .scroll-item__inner {display: flex; flex-direction: column; height: 100%; overflow: hidden;}
+    .scroll-item .left-sticky {width: 100%; height: 292px;}
+    .scroll-item .right-content {overflow: visible; width: 100%; height: 63vh;}
+    .scroll-item .right-content ul {padding: 0 98px;}
+    .product-list li {margin-bottom: 70px;}
+    .product-list li a {width: 193px; height: 193px;}
+    .product-title {top: 75.5%; right: 1%; font-size: 76px;}
+    .scroll-container + section {
+        position: relative;
+        z-index: 5;
+    }
+
+    .model .model-inner {margin: 0 auto 40px; padding-top: 130px;}
+    .model .model-inner .right-txt {top: 26%;}
+    .model .model-inner .right-txt .tit {margin-bottom: 27px;}
+    .model .model-inner .middle .vertical {width: 18%; top: 13.5%; left: 4%;}
+    .model .model-inner .middle .her {width: 70%; top: 39%; right: 5%;}
+    .model .model-inner .bottom {width: 90%; margin: 800px auto 40px;}
+    .model .model-inner .bottom .renewal {margin-top: 200px; width: 100%; margin: auto;}
+    .model .model-inner .bottom .renewal img {margin-bottom: -20px;}
+    .model .model-inner .bottom .txt {margin-bottom: 50px; line-height: 140%;}
+    .model .model-inner .bottom .txt .index768::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .bottom .txt .index768.none::before {display: none;}
+    .model .model-inner .bottom .txt .index390::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
+    .model .model-inner .bottom .btn {width: 86%; height: 60px; font-size: 18px;}
+    .model .model-inner .bottom .btn span {font-size: 10px; margin-top: 1px;}
+
+    .moving-txt {padding: 80px 0 50px;}
+    .moving-txt .marquee {font-size: 120px; margin-bottom: 10px; letter-spacing: 2%;}
+
+    .skin-concern {padding: 100px 0; height: 240dvh;}
     .skin-concern .concern-inner .text-box {margin: 0 auto 100px;}
     .skin-concern .text-box .tit .index768.none::before {display: none ;}
     .skin-concern .text-box .tit .index390::before {content: "\A"; white-space: pre; display: block; height: 0; margin: 0; line-height: 0;}
@@ -402,3 +735,27 @@ button:focus {outline: none;}
     footer .bottom ul.right .time {font-size: 10px;}
 }
 
+@media screen and (max-width: 375px){
+    html, body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important; /* hidden이 강제로 걸려있는지 확인 */
+        height: auto !important;
+        touch-action: auto !important; 
+    }
+
+    .inner-header .tnb {width: 10%; position: absolute; top: 29%; right: 9%; opacity: 0.7;}
+    .intro .intro-inner .txt .index768 {display: block; width: 100%;}
+    .intro .intro-inner .txt .index390 {display: none;}
+    .intro {padding: 290px 0 0; width: 100%; height: 90dvh;}
+    .intro .intro-inner {margin: 0 auto; width: 100%; height: 155px; text-align: center;}
+    .inner-header .logo {top: 30%;}
+    .inner-header .logo a {width: 130px; height: 22px;}
+    .visual .grad {height: 180vh;}
+
+    .product-title {top: 82.5%; right: 1%; font-size: 76px;}
+    .scroll-container + section {
+        position: relative;
+        z-index: 5;
+    }
+    .skin-concern {padding: 100px 0; height: 310dvh;}
+}

@@ -16,50 +16,85 @@ $(function(){
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
 
-    // --- 로고 모션 & 비주얼 고정 ---
+
     const header = document.querySelector('header');
     const visual = document.querySelector('.visual');
     const visualLogo = document.querySelector('.visual a.logo');
     const headerLogoContainer = document.querySelector('header .logo');
     
     if (visual && visualLogo && headerLogoContainer) {
-        ScrollTrigger.create({
-            trigger: visual, start: "top top", pin: true, end: "+=1000", scrub: true
-        });
+        // 모바일 리사이즈 대응
+        ScrollTrigger.config({ ignoreMobileResize: true });
 
-        const lerp = (s, e, p) => s + (e - s) * p;
         const calcPos = () => {
+            // 헤더 로고의 실제 목적지 좌표 측정
             headerLogoContainer.style.opacity = '1';
             const rect = headerLogoContainer.getBoundingClientRect();
             headerLogoContainer.style.opacity = '0';
+            
             return {
-                initX: window.innerWidth / 2, initY: window.innerHeight / 2, initW: visualLogo.offsetWidth,
-                targetX: rect.left + (rect.width / 2), targetY: rect.top + (rect.height / 2), targetW: rect.width
+                initX: window.innerWidth / 2,
+                initY: window.innerHeight / 2,
+                initW: visualLogo.offsetWidth,
+                targetX: rect.left + (rect.width / 2),
+                targetY: rect.top + (rect.height / 2),
+                targetW: rect.width
             };
         };
 
         let pos = calcPos();
         window.addEventListener('resize', () => { pos = calcPos(); });
 
-        let lastY = 0;
-        window.addEventListener('scroll', () => {
-            const currY = window.scrollY;
-            let prog = Math.min(1, Math.max(0, currY / 1000));
-            if (prog < 1) {
-                const curW = lerp(pos.initW, pos.targetW, prog);
-                visualLogo.style.cssText = `position:fixed; opacity:1; width:${curW}px; left:${lerp(pos.initX, pos.targetX, prog)-(curW/2)}px; top:${lerp(pos.initY, pos.targetY, prog)-(visualLogo.offsetHeight/2)}px; transform:none; z-index:9999;`;
-                headerLogoContainer.style.opacity = '0';
-                header.classList.remove('fixed-state');
-            } else {
-                header.classList.add('fixed-state');
-                visualLogo.style.opacity = '0';
-                headerLogoContainer.style.opacity = '1';
+        // 섹션 고정과 로고 애니메이션을 하나의 트리거로 통합
+        ScrollTrigger.create({
+            trigger: visual,
+            start: "top top",
+            end: "+=1000",
+            pin: true,
+            scrub: 1, // 0이 아닌 1 정도의 값을 주면 떨림이 훨씬 줄어듭니다.
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+                const prog = self.progress; // 0 ~ 1 사이 값
+                
+                if (prog < 1) {
+                    const curW = pos.initW + (pos.targetW - pos.initW) * prog;
+                    const curX = (pos.initX + (pos.targetX - pos.initX) * prog) - (curW / 2);
+                    const curY = (pos.initY + (pos.targetY - pos.initY) * prog) - (visualLogo.offsetHeight / 2);
+
+                    // style.cssText 대신 gsap.set을 사용해야 하드웨어 가속이 적용됩니다.
+                    gsap.set(visualLogo, {
+                        position: 'fixed',
+                        opacity: 1,
+                        width: curW,
+                        left: curX,
+                        top: curY,
+                        transform: 'none',
+                        zIndex: 9999,
+                        pointerEvents: 'none' // 로고 때문에 아래 스크롤이 안되는 문제 방지
+                    });
+                    
+                    header.classList.remove('fixed-state');
+                    headerLogoContainer.style.opacity = '0';
+                } else {
+                    header.classList.add('fixed-state');
+                    gsap.set(visualLogo, { opacity: 0 });
+                    headerLogoContainer.style.opacity = '1';
+                }
             }
-            if (currY > lastY && currY > 1100) header.classList.add('hide');
-            else header.classList.remove('hide');
-            lastY = currY;
         });
-    }
+
+        // 헤더 숨기기 로직은 별도의 트리거로 분리하여 성능 최적화
+        ScrollTrigger.create({
+            start: "top top",
+            onUpdate: (self) => {
+                if (self.scroll() > 1100) {
+                    self.direction === 1 ? header.classList.add('hide') : header.classList.remove('hide');
+                } else {
+                    header.classList.remove('hide');
+                }
+            }
+        });
+    };
 
     // --- Visual Gradient & Bottom Image ---
     gsap.timeline({
@@ -91,7 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 // --- Product 스크롤 수정본 ---
-// --- Product 스크롤 수정본 ---
+ScrollTrigger.normalizeScroll(true); 
+ScrollTrigger.config({ ignoreMobileResize: true });
 const productSec = document.querySelector('.scroll-item');
 if (productSec) {
     const items = gsap.utils.toArray('.product-list li');
@@ -108,8 +144,9 @@ if (productSec) {
         scrollTrigger: {
             trigger: productSec,
             start: "top top",
-            end: window.innerWidth <= 768 ? "+=1500" : "+=12000", 
-            pin: true,          
+            end: window.innerWidth <= 768 ? "+=3000" : "+=12000", 
+            pin: true,
+            anticipatePin: 1,          
             scrub: 1.5,     
             invalidateOnRefresh: true,
             onEnter: () => {
@@ -275,20 +312,25 @@ mm.add("(min-width: 769px)", () => {
         { t: ".skin-concern", c: "#1A1A1E" }
     ];
 
-    bgMap.forEach(m => {
-        if(document.querySelector(m.t)) {
+    bgMap.forEach((m, index) => {
+        const target = document.querySelector(m.t);
+        if(target) {
             ScrollTrigger.create({ 
-                trigger: m.t, 
+                trigger: target, 
                 start: "top 50%", 
+                end: "bottom 50%", // 끝나는 지점 설정
                 onEnter: () => gsap.to('body', { backgroundColor: m.c, duration: 0.8 }), 
-                onEnterBack: () => gsap.to('body', { backgroundColor: m.c, duration: 0.8 }) 
+                onEnterBack: () => gsap.to('body', { backgroundColor: m.c, duration: 0.8 }),
+                // 스크롤을 완전히 올려서 첫 번째 섹션 이전으로 갈 때 초기화하고 싶다면 추가
+                onLeaveBack: () => {
+                    if(index === 0) gsap.to('body', { backgroundColor: "", duration: 0.8 });
+                }
             });
         }
     });
 
     return () => gsap.set('body', { backgroundColor: "" });
 });
-
 
 const cursorImg = document.querySelector('.cursor-texture');
 if (cursorImg) {
