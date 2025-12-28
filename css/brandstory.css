@@ -1,0 +1,240 @@
+@charset "utf-8"; 
+
+
+/* reset */
+* {margin: 0;padding: 0; box-sizing: border-box;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none;}
+button:focus {outline: none;}
+
+/* 공통요소 */
+.tit {font-family: 'El Messiri', sans-serif; font-size: 60px; line-height: 100%;}
+.txt {font-family: 'Pretendard', sans-serif; font-size: 20px; line-height: 150%;}
+body {font-family: 'Pretendard', sans-serif; background: #F0E5E0; }
+.wrap {overflow: hidden;}
+
+
+/* header */
+header {background: linear-gradient(rgba(26,26,30,100)0%, rgba(26,26,30,0)100%); width: 100%; height: 156px; position: fixed; left: 0; top: 0; z-index: 100;}
+.inner-header {width: 100%; margin: 0 auto; align-items: center; padding: 49px 148px 70px; font-family: 'El Messiri', sans-serif; color: #EAEAEA; font-size: 16px; letter-spacing: -2%;}
+.inner-header nav {width: 100%; display: flex; justify-content: space-between;}
+.inner-header .gnb {width: 25%; display: flex; justify-content: space-between;}
+.inner-header .gnb a {display: block; width: 100%; height: 100%;}
+.inner-header .logo {width: 24%;}
+.inner-header .logo a {display: block; width: 215px; height: 37px; cursor: pointer;}
+.inner-header .logo a img {width: 100%;}
+.inner-header .tnb {width: 12%; display: flex; justify-content: space-between;}
+.inner-header .tnb a {display: block; width: 100%; height: 100%;}
+
+/* visual */
+.visual {background: #1A1A1E; width: 100%; padding: 190px 0;}
+.visual .visual-inner {width: 90%; margin: auto; padding:100px 0; display: flex; justify-content: space-between; align-items: center;}
+
+.visual .visual-inner .left a.left-img {display: block; width: 148px;}
+.visual .visual-inner .left a.left-img img {width: 100%;}
+.visual .visual-inner .img a.middle {display: block; width: 1183px;}
+.visual .visual-inner .img a.middle img {width: 100%;}
+.visual .visual-inner .right a.right-img {display: block; width: 148px; height: 472px; }
+.visual .visual-inner .right a.right-img img {width: 100%;}
+
+/* intro */
+.intro {background: #1A1A1E; width: 100%; height: 768px;}
+.intro .intro-inner {text-align: center;}
+.intro .intro-inner h2.tit {color: #EFEFEF; font-weight: normal; margin-bottom: 54px;}
+.intro .intro-inner h2.tit span {color: #FFA223;}
+.intro .intro-inner .txt {color: #A9A9A9;}
+.intro .intro-inner .txt span {color: #fff; font-size: 22px;}
+
+/* bombee */
+.bombee {background: #CEB3A4; width: 100%; height: 1080px; position: relative; padding: 200px 403px 200px 314px;}
+.bombee .bombee-inner {width: 100%; margin: 0 auto;}
+.bombee .bombee-inner .title {font-size: 300px; line-height: 90%; letter-spacing: -2%; color: #fff;}
+.bombee .bombee-inner .title .left {font-family:'OT Neglige', sans-serif; font-weight: normal; position: absolute; top: 50%; transform: translateY(-50%); left: 15%; z-index: 50; }
+.bombee .bombee-inner .title .right {font-family:'OT Neglige', sans-serif; font-weight: normal; position: absolute; top: 50%; transform: translateY(-50%); right: 20%; z-index: 50;} 
+.bombee .bombee-inner a {display: block; width: 412px; height: 680px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.bombee .bombee-inner a img {width: 100%;}
+.bombee .bombee-inner .txt {color: #B49F93; font-weight: 600; position: absolute; top: 68%; left: 50%; transform: translateX(-50%);}
+
+
+/* story */
+.story {width: 100%; height: 3524px; padding: 200px 150px;}
+.story .story-inner {width: 1620px;  margin: 0 auto; position: relative;}
+/* .story .story-inner .top {position: absolute;} */
+.story .story-inner .top {display: flex; justify-content: space-between;}
+.story .story-inner .top .left {width: 40%;}
+.story .story-inner .top .left .water {display: block; width: 363px; height: 493px; position: absolute; top: 0; left: 80px;}
+.story .story-inner .top .left .water img {width: 100%;}
+.story .story-inner .top .left p {color: #888888; width: 526px; position: absolute; top: 30%; left: 30%;}
+.story .story-inner .top .right {display: block; width: 45%; height: 517px; position: absolute; top: 470px; right: 82px;}
+.story .story-inner .top .right img {width: 100%;}
+
+.story .story-inner .story-tit {font-family: 'OT Neglige', sans-serif; font-size: 450px; letter-spacing: 1%;} 
+.story .story-inner .story-tit .love {display: block; position: absolute; top: 350px; left: 15%;}
+.story .story-inner .story-tit .infused {display: block; position: absolute; top: 750px; right: 16%;}
+
+/* .story .story-inner .bottom {position: absolute;} */
+.story .story-inner .bottom {position: relative; margin-top: 240px;}
+.story .story-inner .bottom .up {display: flex; gap: 80px;}
+.story .story-inner .bottom .up .family {display: block; width: 537px; height: 727px; position: absolute; top: 815px; left: 0;}
+.story .story-inner .bottom .up .family img {width: 100%;}
+.story .story-inner .bottom .up p {color: #888888; position: absolute; top: 1080px; left: 36%;}
+.story .story-inner .bottom .down {display: flex; margin-top: 180px;}
+.story .story-inner .bottom .down p {color: #888888; text-align:right; position: absolute; top: 2400px; left: 26%;}
+.story .story-inner .bottom .down .hand {display: block; width: 703px; height: 981px; position: absolute; top: 1980px; left: 55%;}
+.story .story-inner .bottom .down .hand img {width: 100%;}
+
+.story .story-inner .story-tit .skins {display: block; position: absolute; top: 1523px; left: 13%;}
+.story .story-inner .story-tit .prestige {display: block; position: absolute; top: 1900px; right: 12%;}
+
+
+
+/* ingredient */
+.ingredient {background:#1A1817;}
+.ingredient-inner {width: 1620px; margin:0 auto; padding: 200px 0;}
+.ingredient-inner a {display: block; width: 100%; height: 100%; }
+.ingredient-inner a .box {width: 100%; display: flex; justify-content: space-between; border-bottom: 1px solid #505050; padding: 70px 0; position: relative;}
+.ingredient-inner .box:nth-child(1) {border-top: 1px solid #505050;}
+.ingredient-inner .box .text {width: 100%; display: flex; justify-content: space-between; align-items: center; color:#505050;}
+
+.ingredient-inner .box .left {display: flex; align-items: center; justify-content: space-between; overflow: hidden;} 
+.ingredient-inner .box .left span {width: 20px; height: 20px; border-radius: 50%; transition: all 0.3s; position: absolute; top: 50%; left: -20px; transform: translateY(-50%) scale(0.1);}
+.ingredient-inner .box .left h2 {font-size: 150px; font-family: 'OT Neglige', sans-serif; text-align: center; line-height: 1; letter-spacing: 1%; font-weight: 400; margin-left: 40px; overflow: hidden; position: relative; color: transparent;}
+.ingredient-inner .box .left h2::before {content: 'Rice'; position: absolute; top: 0; left: 0; transition: all 0.5s; color: #505050;}
+.ingredient-inner .box.eggplant .left h2::before {content: 'eggplant';}
+.ingredient-inner .box.teatree .left h2::before {content: 'teatree';}
+.ingredient-inner .box.Honey .left h2::before {content: 'Honey';}
+.ingredient-inner .box.hyaluronic .left h2::before {content: 'hyaluronic';}
+.ingredient-inner .box .left h2::after {content: 'Rice'; position: absolute; bottom: -100%; left: 0; transition: all 0.5s; color: #EAEAEA;}
+.ingredient-inner .box.eggplant .left h2::after {content: 'eggplant';}
+.ingredient-inner .box.teatree .left h2::after {content: 'teatree';}
+.ingredient-inner .box.Honey .left h2::after {content: 'Honey';}
+.ingredient-inner .box.hyaluronic .left h2::after {content: 'hyaluronic';}
+.ingredient-inner .box .img {width: 278px; height: 410px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.2); opacity: 0; transition: all 0.5s; z-index: 1;} 
+.ingredient-inner .box .img img {width: 100%;}
+.ingredient-inner .box .right {font-size: 25px; font-family: 'pretendard', sans-serif;line-height: 130%; letter-spacing: -3%;}
+
+.ingredient-inner a:hover .box h2::before, .ingredient-inner a:focus .box h2::before { top: -100%; transition: all 0.5s;}
+.ingredient-inner a:hover .box h2::after, .ingredient-inner a:focus .box h2::after { bottom: 0; transition: all 0.5s;}
+.ingredient-inner a:hover .box h2, .ingredient-inner a:focus .box h2 {color: transparent;}
+.ingredient-inner a:hover .box .right, .ingredient-inner a:focus .box .right {color: #EAEAEA;}
+.ingredient-inner a:hover .box .left span, .ingredient-inner a:focus .box .left span {background: #FFA223; opacity: 1; width: 20px; height: 20px; transition: all 0.3s; transform: translateY(-50%) scale(1);}
+.ingredient-inner a:hover .box .img, .ingredient-inner a:focus .box .img {opacity: 1; transition: all 0.3s; transform: translate(-50%, -50%) scale(1);}
+
+
+/* history */
+.history {background: #1A1A1E;width: 100%;}
+.history-inner {overflow-x: auto; overflow-y: hidden; width: 100%; }
+.history-inner h1 {font-size: 350px; font-family: 'OT Neglige', sans-serif; color:#fff; font-weight: 300; margin:0}
+.history-inner ul {display: flex; flex-wrap: nowrap;}
+.history-inner ul li {position: relative; display: flex; flex: 0 0 auto; padding-right: 1000px; align-items: flex-start;}
+.history-inner ul li span.line {display: block;  width: 100%;;height: 1px;}
+.history-inner ul li span.line::after {content: ''; width: 100%; height: 1px; position:absolute; right: 0; top:100px; background: #fff; z-index: -1;}
+.history-inner ul li .year h1 span {font-size: 150px; font-weight: 400;}
+.history-inner ul li .txt-box a {display:block; width: 32px; height: 32px; margin-bottom: 50px;}
+.history-inner ul li .txt-box a img {width: 100%;}
+.history-inner ul li .txt-box h2 {font-size: 40px; color: #FFA223; font-family: 'El Messiri', sans-serif; margin-bottom: 30px; line-height: 1.2;}
+.history-inner ul li .txt-box p {font-size: 20px; font-family: 'pretendard', sans-serif; color:#A9A9A9; margin-bottom: 10px; display: flex;}
+.history-inner ul li .txt-box span {display: inline-block;  width: 5px; height: 5px; border-radius: 50%; background: #505050; margin-right: 10px; margin-top:10px;}
+
+.history-inner ul li .img {display: flex; justify-content: space-between;} 
+.history-inner ul li .img a {display:block;}
+.history-inner ul li .img a img {width: 100%;}
+.history-inner ul li div.left .txt-box {margin-left: 400px;}
+
+/* 2025 */
+.history-inner ul li.y2025 .img a.left {width: 465px; height: 531px;}
+.history-inner ul li.y2025 .img a.right {width: 313px; height: 303px; margin: 150px 0 0 36px;}
+.history-inner ul li.y2025 .txt-box {margin:250px 300px 0 200px}
+/* 2022 */
+.history-inner ul li.y2022 .img a.left {width: 575px; height: 577px;}
+.history-inner ul li.y2022 .img a.right {width: 339px; height: 477px;}
+/* 2016 */
+.history-inner ul li.y2016 div.left {margin-right: 500px;}
+.history-inner ul li.y2016 .img a.left {width: 465px; height: 531px;}
+.history-inner ul li.y2016 .img a.top {width: 313px; height: 211px; margin-bottom: 20px;}
+.history-inner ul li.y2016 .img a.bottom {width: 313px; height: 211px;}
+.history-inner ul li.y2016 .img div.right {margin: 87px 0 0 36px;} 
+/* 2013 */
+.history-inner ul li.y2013 div.left {margin-right: 420px;} 
+.history-inner ul li.y2013 .img a.left {width: 575px; height: 577px;}
+.history-inner ul li.y2013 .img a.right {width: 313px; height: 303px; margin: 125px 0 0 36px;}
+/* 2012 */
+.history-inner ul li.y2012 .img a.left {width: 309px; height: 211px; margin:200px 36px 0 0;}
+.history-inner ul li.y2012 .img a.right {width: 465px; height: 577px;}
+.history-inner ul li.y2012 .img {margin-left: 425px;}
+
+
+
+
+/* ourstory */
+.our {background: #F0E5E0;}
+.our-inner {width: 1646px; margin: 143px auto;}
+.our-inner h3 {font-size: 20px; font-family: 'pretendard', sans-serif; margin-bottom: 19px; font-weight: 400;}
+.our-inner .txt-box h1 {font-weight: 300; margin-bottom: 0;}
+.our-inner .txt-box span {display: inline-block; width: 50px; height: 2px; background: #000; margin:0 5px 16px 0;}
+.our-inner .txt-box p.txt {margin-top: 112px;}
+.our-inner .img-box {display: flex; width: 45%;}
+.our-inner .img-box a {display: block;}
+.our-inner .img-box a img {width: 100%;}
+
+.our-inner .top {display: flex; justify-content: space-between; margin-bottom: 125px;}
+.our-inner .top .img-box a.left {width: 284px; height: 423px; margin: 187px 34px 0 124px }
+.our-inner .top .img-box a.right {width: 440px; height: 655px;}
+
+.our-inner .bottom {display: flex; justify-content: space-between;}
+.our-inner .bottom .txt-box {margin-top: 328px;}
+.our-inner .bottom .img-box a.left {width: 440px; height: 655px;}
+.our-inner .bottom .img-box a.right {width: 284px; height: 423px; margin: 226px 0 206px 34px}
+
+/* js ani */
+.our-inner .tit.animate {opacity: 0; transform: translate(0, 10px); transition: all 0.8s; transition-delay: 0.3s;} 
+.our-inner .tit.animate.animated {opacity: 1; transform: translate(0,0);}
+.our-inner .txt.animate { opacity: 0; transform:  translate(0, 10px); transition: all 0.5s; transition-delay: 0.4s;} 
+.our-inner .txt.animate.animated {opacity: 1; transform: translateY(0);}
+.our-inner .left.animate {opacity: 0; transform:  translate(0, 10px); transition: all 0.5s; transition-delay: 0.5s;} 
+.our-inner .left.animate.animated {opacity: 1; transform: translateY(0);}
+.our-inner .right.animate {opacity: 0; transform:  translate(0, 10px); transition: all 0.5s; transition-delay: 0.6s;} 
+.our-inner .right.animate.animated {opacity: 1; transform: translateY(0);}
+
+
+/* sherpa */
+.sherpa .sherpa-inner {position:relative; width: 100%;}
+.sherpa .sherpa-inner img {position:absolute; width: 100%; left:0; top:0}
+.sherpa .sherpa-inner a.bg {z-index: 1}
+.sherpa .sherpa-inner a.mauntin {z-index: 3}
+/* .sherpa .sherpa-inner a.text.animate {z-index: 2; opacity: 1; transform: translate(0,50%); transition: all 0.2s}
+.sherpa .sherpa-inner a.text.animate.animated {opacity: 1; transform: translate(0,0);}
+
+/* 애니메이션 */
+@keyframes riseup {
+    0% {transform: translateY(50%)};
+    30% {transform: translateY(30%)};
+    50% {transform: translateY(15%)};
+    80% {opacity: 0.7; transform: translateY(5%)};
+}
+
+.sherpa .sherpa-inner a.text.animate {animation-name: riseup 0.5s}
+
+
+/* closing */
+.closing {background: #1A1A1E; width: 100%; padding: 400px 0;}
+.closing .closing-inner {width: 90%; margin: 0 auto; text-align: center;}
+.closing .closing-inner h2.tit {color: #676768; font-weight: 400;}
+.closing .closing-inner p.txt {color: #A9A9A9; margin-top: 38px;}
+
+/* footer */
+footer .top h3 {font-size: 451px; font-family:'OT Neglige', sans-serif; line-height: 140%; letter-spacing: 2%; color: #1A1A1E; font-weight: normal; text-align: center; padding-top: 190px}
+footer .bottom {display: flex; justify-content: space-between ;background: #24242C; padding: 100px 70px;}
+footer .bottom a {display: inline-block; width: 407px; height: 228px;}
+footer .bottom a img {width: 100%;}
+footer .bottom ul {width: 30%;}
+footer .bottom ul li {font-size: 16px; color:#767676; line-height: 140%; letter-spacing: -2%;}
+footer .bottom ul.right .contact {font-size: 24px; color: #DBDBDB;}
+footer .bottom ul.right .time {font-size: 20px; color: #DBDBDB;}
+

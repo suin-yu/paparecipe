@@ -1,0 +1,118 @@
+@charset "utf-8"; 
+
+
+/* reset */
+* {margin: 0;padding: 0; }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 { font-size: inherit;}
+a { text-decoration: inherit;}
+img {}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none;}
+button:focus {outline: none;}
+
+/* 공통요소 */
+body {font-family: 'Pretendard', sans-serif; margin: 0 auto;  }
+.tit {font-family: 'El Messiri', sans-serif; font-size: 4.1667vw; letter-spacing: -3%;}
+.txt {font-size: 1.3889vw;}
+.wrap {  line-height: 1.3;}
+
+section {margin: 0 auto 11.8056vw;}
+h2.tit {font-size: 3.4722vw; margin-bottom: 4.8611vw;   }
+.bar {width: 30%; height: 0.1389vw; background: #CFCECC;   left: 50%; transform: translateX(-50% );}
+.bar .b_bar { width: 40%; height: 0.3472vw; background: #1A1A1E;   top: -0.0694vw;}
+.textBox {padding: 1.3889vw;}
+.textBox h3 {font-size: 1.1111vw; margin-bottom: 0.6944vw;}
+.textBox p {font-size: 1.5278vw; }
+
+/* header */
+header {background: linear-gradient( rgba(26,26,30,100)0%, rgba(26,26,30,0)100%); width: 100%; height: 10.8333vw;  left: 0; top: 0; }
+.inner-header {width: 100%; margin: 0 auto; align-items: center; padding: 3.4028vw 10.2778vw 4.8611vw; font-family: 'El Messiri', sans-serif;  font-size: 1.1111vw; letter-spacing: -2%;}
+.inner-header nav {width: 100%;  justify-}
+.inner-header .gnb {width: 25%;  justify-}
+.inner-header .gnb a { width: 100%; height: 100%;}
+.inner-header .logo {width: 24%;}
+.inner-header .logo a { width: 14.9306vw; height: 2.5694vw; cursor: pointer;}
+.inner-header .logo a img {width: 100%;}
+.inner-header .tnb {width: 12%;  justify-}
+.inner-header .tnb a { width: 100%; height: 100%;}
+
+
+/* visual */
+.visual {width: 100%; height: 59.7222vw;   }
+.visual .inner {width: 100%; }
+.visual .inner .img {width: 100%;}
+.visual .inner .img img {width: 100%;}
+.visual .inner .textBox {width: 80%;  bottom: 5%; left: 50%; transform: translateX(-50%); }
+.visual .inner .textBox .top {margin-bottom: 5.5556vw;}
+.visual .inner .textBox .top h2 {margin: 0 auto; font-family: "Cormorant Garamond", serif;; font-size: 4.8611vw;  margin-bottom: 1.1111vw; font-style: italic;}
+.visual .inner .textBox .top .txt {font-size: 1.2500vw; }
+.visual .inner .textBox .bottom span { width: 7.6389vw; height: 0.0694vw; background: #EAEAEA; margin: 0 auto 1.1111vw;}
+.visual .inner .textBox .bottom .img {width: 1.5972vw; margin: 0 auto;}
+.visual .inner .textBox .bottom .img img {width: 100%;}
+
+
+/* bestSeller */
+.bestSeller {overflow-y: hidden; overflow-x: auto;}
+.bestSeller .inner {padding: 6.9444vw 0;}
+
+.bestSeller .inner .list { align-items: center; flex-wrap: nowrap; margin: 0 2.0833vw 4.8611vw;}
+.bestSeller .inner .list li {flex: 0 0 24.8%; margin-right: 0.8333vw;}
+.bestSeller .inner .list a { width: 100%;}
+.bestSeller .inner .list .img {width: 100%;}
+.bestSeller .inner .list .img img {width: 100%;}
+
+
+/* NewArrival */
+
+.NewArrival {overflow-y: hidden; overflow-x: auto; }
+.NewArrival .inner .NewArrival_box { justify- align-items: center; background: #F7F6F2;}
+.NewArrival .inner .NewArrival_box>.img {width: 50%; }
+.NewArrival .inner .NewArrival_box>.img img {width: 100%;}
+.NewArrival .inner .NewArrival_box .list_box {width: 50%;}
+.NewArrival .inner .NewArrival_box .list_box .bar {width: 40%;}
+.NewArrival .inner .NewArrival_box .list_box .bar .b_bar {width: 30%;}
+.NewArrival .inner .NewArrival_box .list { align-items: center; flex-wrap: nowrap; margin-bottom: 4.1667vw;}
+.NewArrival .inner .list li {flex: 0 0 100%;}
+.NewArrival .inner .list li a { width: 45%; margin: 0 auto;}
+.NewArrival .inner .list li a .img {width: 100%;}
+.NewArrival .inner .list li a .img img {width: 100%;}
+
+/* allProduct */
+
+.allProduct {margin: 0 auto;}
+.allProduct .inner .list_menu { justify- margin-left: 2.0833vw; width: 20%; margin-bottom: 1.6667vw;}
+.allProduct .inner .list_menu li {margin-right: 0.9722vw;   font-size: 1.2500vw;}
+.allProduct .inner .list_menu li:nth-child(1) {}
+.allProduct .inner .list_menu li::after { width: 0.0694vw; height: 1.2500vw; background: #A1A09F;  right: -1.1111vw; top: 0.2083vw;}
+.allProduct .inner .list_menu li:nth-child(4)::after {opacity: 0;} 
+
+.allProduct .inner .list_product ul { justify-}
+.allProduct .inner .list_product ul li {width: 25%;}
+.allProduct .inner .list_product li.veo {width: 50%; height: 100%;}
+.allProduct .inner .list_product li.veo .veo {width: 100%; height: 100%;  }
+.allProduct .inner .list_product li.veo video {width: 100%;  object-fit: cover;}
+.allProduct .inner .list_product li ul li {background: linear-gradient(135deg,  #E1E1E1 0%,  #F1F0F1 100%);}
+.allProduct .inner .list_product li ul li a {width: 100%;  padding: 1.3889vw;}
+.allProduct .inner .list_product li ul li a .img {width: 100%; }
+.allProduct .inner .list_product li ul li a .img img {width: 100%;}
+.allProduct .inner .list_product li ul li a .textBox {padding: 0;}
+
+.allProduct .inner .list_product .turn {width: 100%; height: 75.0000vw;  background: #F7F6F2; }
+.allProduct .inner .list_product .turn .product {width: 15%; margin: 0 auto;  top: 50%; left: 52%; transform: translate(-50%, -50%);}
+.allProduct .inner .list_product .turn .img img {width: 100%;}
+.allProduct .inner .list_product .turn .text {line-height: 75.0000vw; width: 83%; margin: 0 auto;}
+
+
+
+/* footer */
+footer .top h3 {font-size: 31.3194vw; font-family:'OT Neglige', sans-serif; line-height: 140%; letter-spacing: 2%;    padding-top: 13.1944vw}
+footer .bottom {display: flex; justify-content: space-between ;background: #24242C; padding: 6.9444vw 4.8611vw;}
+footer .bottom a { width: 28.2639vw; height: 15.8333vw;}
+footer .bottom a img {width: 100%;}
+footer .bottom ul {width: 30%;}
+footer .bottom ul li {font-size: 1.1111vw;  line-height: 140%; letter-spacing: -2%;}
+footer .bottom ul.right .contact {font-size: 1.6667vw; }
+footer .bottom ul.right .time {font-size: 1.3889vw; }
