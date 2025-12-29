@@ -308,7 +308,7 @@ button:focus {outline: none;}
 
     .moving-txt .marquee {font-size: 200px;}
 
-    .skin-concern {padding: 150px 0; height: 380vh;} 
+    .skin-concern {padding: 150px 0; height: 360vh;} 
     .skin-concern .concern-inner {width: 100%;}
     .skin-concern .concern-inner .text-box {width: 100%;}
     .skin-concern .concern-inner .text-box .tit .none::before {display: none;}
@@ -656,9 +656,9 @@ button:focus {outline: none;}
     .model .model-inner {margin: 0 auto 40px; padding-top: 130px;}
     .model .model-inner .right-txt {top: 26%;}
     .model .model-inner .right-txt .tit {margin-bottom: 27px;}
-    .model .model-inner .middle .vertical {width: 18%; top: 13.5%; left: 4%;}
-    .model .model-inner .middle .her {width: 70%; top: 39%; right: 5%;}
-    .model .model-inner .bottom {width: 90%; margin: 800px auto 40px;}
+    .model .model-inner .middle .vertical {width: 18%; top: 17%; left: 4%;}
+    .model .model-inner .middle .her {width: 70%; top: 44%; right: 5%;}
+    .model .model-inner .bottom {width: 90%; margin: 1000px auto 40px;}
     .model .model-inner .bottom .renewal {margin-top: 200px; width: 100%; margin: auto;}
     .model .model-inner .bottom .renewal img {margin-bottom: -20px;}
     .model .model-inner .bottom .txt {margin-bottom: 50px; line-height: 140%;}
@@ -705,6 +705,7 @@ button:focus {outline: none;}
     .theraphy .theraphy-inner .title p.b {right: 23px; top: 23%;}
     .theraphy .theraphy-inner .title span {left: 33%; top: 47%;}
     .theraphy .marquee-content {margin-right: 50px;}
+    .theraphy ul {margin: 0 auto 100px;}
     .theraphy ul li .txt-box h3 {font-size: 50px;}
     .theraphy ul li .txt-box p {font-size: 20px;}
     .theraphy ul li {width: auto; margin-right: 50px;}
@@ -712,12 +713,12 @@ button:focus {outline: none;}
     .theraphy ul li a.height {width: 155px; height: 208px;}
     
     .day6 .day-inner {height: 972px; margin: 0 auto 100px; display: flex; flex-direction: column; align-items: center; background: #F0E5E0;}
-    .day6 .day-inner .left .day {width: 222px; height: 336px; position:absolute; top: 7%;}
+    .day6 .day-inner .left .day {width: 222px; height: 336px; position:absolute; top: 10%;}
     .day6 .day-inner .left .day img {width: 100%;}
-    .day6 .day-inner .left .textbox {width: 100%; position:absolute; top: 85%; left: 0%; text-align: center;}
+    .day6 .day-inner .left .textbox {width: 100%; position:absolute; top: 86%; left: 0%; text-align: center;}
     .day6 .day-inner .left h2.tit {font-size: 32px;} 
     .day6 .day-inner .left p.txt {font-size: 16px;}
-    .day6 .day-inner .right {width: 330px; height: 443px; position: absolute; top: 17.5%; left: 6%;}
+    .day6 .day-inner .right {width: 330px; height: 443px; position: absolute; top: 22%; left: 6%;}
     .day6 .day-inner .right img {display: block; width: 90%; height: 100%;; margin: auto;}
 
     .ad .ad-inner video {width: 330px; height: 202px;}
