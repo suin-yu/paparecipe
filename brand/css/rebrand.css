@@ -503,7 +503,7 @@ header.hide {transform: translateY(-100%);}
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/arrow-1.JPG);
+    background-image: url(../img/arrow-1.svg);
     background-repeat: no-repeat;
     background-position: 50% 28%;
     position: fixed;
