@@ -16,52 +16,62 @@ $(function(){
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
 
-
     const header = document.querySelector('header');
     const visual = document.querySelector('.visual');
     const visualLogo = document.querySelector('.visual a.logo');
     const headerLogoContainer = document.querySelector('header .logo');
     
-    if (visual && visualLogo && headerLogoContainer) {
-        // 모바일 리사이즈 대응
-        ScrollTrigger.config({ ignoreMobileResize: true });
+    if (!header || !visual || !visualLogo || !headerLogoContainer) return;
 
-        const calcPos = () => {
-            // 헤더 로고의 실제 목적지 좌표 측정
-            headerLogoContainer.style.opacity = '1';
-            const rect = headerLogoContainer.getBoundingClientRect();
-            headerLogoContainer.style.opacity = '0';
-            
-            return {
-                initX: window.innerWidth / 2,
-                initY: window.innerHeight / 2,
-                initW: visualLogo.offsetWidth,
-                targetX: rect.left + (rect.width / 2),
-                targetY: rect.top + (rect.height / 2),
-                targetW: rect.width
-            };
+    // 1. 위치 계산
+    const calcPos = () => {
+        header.classList.add('fixed-state');
+        headerLogoContainer.style.opacity = '1';
+        const rect = headerLogoContainer.getBoundingClientRect();
+        header.classList.remove('fixed-state');
+        headerLogoContainer.style.opacity = '0';
+        
+        return {
+            initX: window.innerWidth / 2,
+            initY: window.innerHeight / 2,
+            initW: visualLogo.offsetWidth,
+            targetX: rect.left + (rect.width / 2),
+            targetY: rect.top + (rect.height / 2),
+            targetW: rect.width
         };
+    };
 
-        let pos = calcPos();
-        window.addEventListener('resize', () => { pos = calcPos(); });
+    let pos = calcPos();
+    window.addEventListener('resize', () => { pos = calcPos(); });
 
-        // 섹션 고정과 로고 애니메이션을 하나의 트리거로 통합
-        ScrollTrigger.create({
+    // 2. [애니메이션 구간] 로고가 작아지는 트리거 (1000px 동안 실행)
+    const visualTimeline = gsap.timeline({
+        scrollTrigger: {
             trigger: visual,
             start: "top top",
             end: "+=1000",
             pin: true,
-            scrub: 1, // 0이 아닌 1 정도의 값을 주면 떨림이 훨씬 줄어듭니다.
+            scrub: 1,
             invalidateOnRefresh: true,
+            onLeave: () => {
+                // 애니메이션 구간이 끝나면 헤더 고정 상태 활성화
+                header.classList.add('fixed-state');
+                gsap.set(visualLogo, { opacity: 0 });
+                headerLogoContainer.style.opacity = '1';
+            },
+            onEnterBack: () => {
+                // 다시 위로 올라오면 고정 해제
+                header.classList.remove('fixed-state');
+                gsap.set(visualLogo, { opacity: 1 });
+                headerLogoContainer.style.opacity = '0';
+            },
             onUpdate: (self) => {
-                const prog = self.progress; // 0 ~ 1 사이 값
-                
+                const prog = self.progress;
                 if (prog < 1) {
                     const curW = pos.initW + (pos.targetW - pos.initW) * prog;
                     const curX = (pos.initX + (pos.targetX - pos.initX) * prog) - (curW / 2);
                     const curY = (pos.initY + (pos.targetY - pos.initY) * prog) - (visualLogo.offsetHeight / 2);
 
-                    // style.cssText 대신 gsap.set을 사용해야 하드웨어 가속이 적용됩니다.
                     gsap.set(visualLogo, {
                         position: 'fixed',
                         opacity: 1,
@@ -70,31 +80,50 @@ document.addEventListener('DOMContentLoaded', function() {
                         top: curY,
                         transform: 'none',
                         zIndex: 9999,
-                        pointerEvents: 'none' // 로고 때문에 아래 스크롤이 안되는 문제 방지
+                        pointerEvents: 'none'
                     });
-                    
-                    header.classList.remove('fixed-state');
-                    headerLogoContainer.style.opacity = '0';
-                } else {
-                    header.classList.add('fixed-state');
-                    gsap.set(visualLogo, { opacity: 0 });
-                    headerLogoContainer.style.opacity = '1';
                 }
             }
-        });
+        }
+    });
 
-        // 헤더 숨기기 로직은 별도의 트리거로 분리하여 성능 최적화
-        ScrollTrigger.create({
-            start: "top top",
-            onUpdate: (self) => {
-                if (self.scroll() > 1100) {
-                    self.direction === 1 ? header.classList.add('hide') : header.classList.remove('hide');
-                } else {
-                    header.classList.remove('hide');
-                }
+    // 3. [일반 구간] 수정본
+const headerAnim = gsap.to(header, {
+    yPercent: -100,
+    duration: 0.3,
+    paused: true,
+    ease: "power2.out"
+});
+
+ScrollTrigger.create({
+    trigger: "body",
+    start: "top top",
+    end: "bottom bottom",
+    onUpdate: (self) => {
+        const currentScroll = self.scroll();
+
+        if (currentScroll > 1050) {
+            header.classList.add('fixed-state');
+
+            if (self.direction === 1) {
+                headerAnim.play();
+            } else {
+                // 올릴 때 나타남
+                headerAnim.reverse();
+                
+                // [추가] 나타날 때 헤더를 강제로 화면 맨 위로 호출
+                gsap.set(header, { 
+                    zIndex: 9999999, 
+                    display: 'flex', 
+                    opacity: 1 
+                });
             }
-        });
-    };
+        } else {
+            header.classList.remove('fixed-state');
+            headerAnim.reverse();
+        }
+    }
+});
 
     // --- Visual Gradient & Bottom Image ---
     gsap.timeline({
@@ -128,13 +157,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // --- Product 스크롤 수정본 ---
 ScrollTrigger.normalizeScroll(true); 
 ScrollTrigger.config({ ignoreMobileResize: true });
+
+// --- Product 스크롤 타이틀/이미지 동기화 수정본 ---
 const productSec = document.querySelector('.scroll-item');
+
 if (productSec) {
     const items = gsap.utils.toArray('.product-list li');
     const titles = gsap.utils.toArray('.product-title');
     const mainImgs = gsap.utils.toArray('.img-wrap img');
 
-    // 초기 세팅
+    // 초기 상태 설정
     gsap.set(titles, { opacity: 0 }); 
     gsap.set(titles[0], { opacity: 1 });
     gsap.set(mainImgs, { opacity: 0 }); 
@@ -144,16 +176,15 @@ if (productSec) {
         scrollTrigger: {
             trigger: productSec,
             start: "top top",
-            end: window.innerWidth <= 768 ? "+=3000" : "+=12000", 
+            end: window.innerWidth <= 768 ? "+=3000" : "+=10000", 
             pin: true,
-            anticipatePin: 1,          
             scrub: 1.5,     
             invalidateOnRefresh: true,
             onEnter: () => {
                 if(window.innerWidth > 768) gsap.to('body', { backgroundColor: '#1A1A1E', duration: 0.5 });
             },
             onLeaveBack: () => {
-                if(window.innerWidth > 768) gsap.to('body', { backgroundColor: '#fff', duration: 0.5 }); // 배경색 복구
+                if(window.innerWidth > 768) gsap.to('body', { backgroundColor: '#fff', duration: 0.5 });
             }
         }
     });
@@ -161,24 +192,27 @@ if (productSec) {
     items.forEach((item, i) => {
         gsap.set(item, { xPercent: -50, yPercent: -50, top: "50%", left: "50%", position: "absolute" });
 
-        // 인덱스 계산 (타이틀은 6개당 1개, 이미지는 3개당 1개라고 가정하신 로직 유지)
-        let aT = Math.floor(i / 6);
-        let aI = Math.floor(i / 3);
+        /**
+         * 핵심 로직 수정:
+         * aI (메인 이미지): 오른쪽 리스트 2개당 1장 변경 -> i / 2
+         * aT (h2 타이틀): 오른쪽 리스트 4개당 1번 변경 -> i / 4
+         */
+        let aI = Math.floor(i / 2); 
+        let aT = Math.floor(i / 4); 
 
         tl.fromTo(item, 
             { autoAlpha: 0, y: window.innerWidth <= 768 ? 150 : 500, scale: 0.8 },
             { 
                 autoAlpha: 1, y: 0, duration: 2, scale: 1.1, ease: "none",
-                // 역재생 시에도 감지하기 위해 onUpdate 또는 적절한 시점에 실행
                 onStart: () => {
-                    // 앞으로 갈 때 변경
+                    // 스크롤 내릴 때 업데이트
                     updateMedia(aT, aI);
                 },
                 onReverseComplete: () => {
-                    // 뒤로 갈 때(역재생) 이전 아이템의 미디어로 복구
+                    // 스크롤 올릴 때 이전 상태로 복구
                     if (i > 0) {
-                        let prevAT = Math.floor((i - 1) / 6);
-                        let prevAI = Math.floor((i - 1) / 3);
+                        let prevAI = Math.floor((i - 1) / 2);
+                        let prevAT = Math.floor((i - 1) / 4);
                         updateMedia(prevAT, prevAI);
                     }
                 }
@@ -195,16 +229,28 @@ if (productSec) {
         }, ">-0.5");
     });
 
-    // 미디어 업데이트 함수 분리
+    // 미디어 교체 함수
     function updateMedia(titleIdx, imgIdx) {
+        // h2 타이틀 교체
         titles.forEach((t, idx) => {
-            gsap.to(t, { opacity: idx === titleIdx ? 1 : 0, duration: 0.3, overwrite: true });
+            gsap.to(t, { 
+                opacity: idx === titleIdx ? 1 : 0, 
+                display: idx === titleIdx ? "block" : "none", // 필요시 공간 확보를 위해 추가
+                duration: 0.4, 
+                overwrite: true 
+            });
         });
+        // 메인 이미지 교체
         mainImgs.forEach((m, idx) => {
-            gsap.to(m, { opacity: idx === imgIdx ? 1 : 0, duration: 0.3, overwrite: true });
+            gsap.to(m, { 
+                opacity: idx === imgIdx ? 1 : 0, 
+                duration: 0.4, 
+                overwrite: true 
+            });
         });
     }
 }
+
 
     // --- Skin Concern: 텍스트 단어별 등장 + 이미지 애니메이션 ---
 
@@ -237,7 +283,7 @@ gsap.utils.toArray('.skin-concern .left').forEach((container) => {
         opacity: 1,
         y: 0,
         stagger: 0.2,
-        duration: 0.8,
+        duration: 0.5,
         ease: "power2.out",
         scrollTrigger: {
             trigger: container,
@@ -259,7 +305,7 @@ gsap.utils.toArray('.skin-concern .imgAni').forEach((box, i) => {
             clipPath: "inset(0% 0 0 0)",      
             webkitClipPath: "inset(0% 0 0 0)",
             y: 0,
-            duration: 1.5,
+            duration: 1,
             ease: "power2.inOut",            
             scrollTrigger: {
                 trigger: box,
@@ -271,7 +317,7 @@ gsap.utils.toArray('.skin-concern .imgAni').forEach((box, i) => {
     // 무한 둥둥 애니메이션
     gsap.to(box, {
         y: i % 2 === 0 ? -20 : 20,
-        duration: 2.5,
+        duration: 2,
         ease: "sine.inOut",
         repeat: -1,
         yoyo: true,

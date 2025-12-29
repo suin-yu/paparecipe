@@ -226,6 +226,7 @@ header.hide {transform: translateY(-100%);}
 .story .story-inner .text .txt:nth-child(3) {position: absolute; bottom: 23%; left: 16%; text-align: right;}
 .story .story-inner .text .txt .block_1920 {display: block;}
 
+.story .story-inner .text .txt {font-size: 20px !important;}
 
 /* 기본 타이틀 (크기/폰트만) */
 .story .story-inner .story-tit {
@@ -286,7 +287,8 @@ header.hide {transform: translateY(-100%);}
 .ingredient-inner .box .left {display: flex; align-items: center; justify-content: space-between; position: relative;} 
 .ingredient-inner .box .left span {width: 20px; height: 20px; border-radius: 50%; transition: all 0.3s; position: absolute; top: 50%; left: 0; transform: translateY(-50%) scale(0.1);}
 
-.ingredient-inner .box .left h2 {font-size: 150px; font-family: 'OT Neglige', sans-serif; text-align: center; line-height: 1; letter-spacing: 1%; font-weight: 400; margin-left: 40px; overflow: hidden; position: relative; color: transparent;}
+.ingredient-inner .box .left h2 {font-size: 150px; font-family: 'OT Neglige', sans-serif; text-align: center; line-height: 1; letter-spacing: 1%; font-weight: 400
+  ; margin-left: 40px; overflow: hidden; position: relative; color: transparent;}
 .ingredient-inner .box .left h2::before {content: 'Rice'; position: absolute; top: 0; left: 0; transition: all 0.5s; color: #505050;}
 .ingredient-inner .box.eggplant .left h2::before {content: 'Eggplant';}
 .ingredient-inner .box.teatree .left h2::before {content: 'Teatree';}
@@ -315,7 +317,7 @@ header.hide {transform: translateY(-100%);}
 .history-inner ul li {height:1024px; flex-shrink: 0; margin-left: 350px;}
 
 /* 선 */
-.line {position: absolute; top: 455px; left: 61%; width: 587%; height: 1px; background: #434346; display:block; z-index: 0; pointer-events: none;}
+.line {position: absolute; top: 455px; left: 0; height: 1px; background: #434346; display:block; z-index: 0; pointer-events: none;}
 .history-inner ul li {position: relative; z-index: 2; background: transparent;}
 /* + */
 .history-inner ul li h2.span {font-size: 6.3vw; font-weight: 700;}
@@ -383,7 +385,7 @@ header.hide {transform: translateY(-100%);}
 .history-inner ul li.y2013 .img a.right img {width: 100%;}
 
 /* 2012 */
-.history-inner ul li.y2012 {padding-right: 60vw;}
+.history-inner ul li.y2012 {padding-right: 5vw;}
 .history-inner ul li.y2012 .txt-box {margin-left: 15.3vw; margin-top: 7.2vw;}
 .history-inner ul li.y2012 .img {gap: 34px;}
 .history-inner ul li.y2012 .img a.left {width: 309px; height: 211px; margin-top: 10vw;}
@@ -423,6 +425,7 @@ header.hide {transform: translateY(-100%);}
 
 .our {aspect-ratio: 1920 / 1724; padding: 164px 0; background-color: #F0E5E0;}
 .our-inner {width: 84.5%; height: 100%; margin: 0 auto; position: relative;}
+.our-inner .txt-box h2 {font-size: 3.46vw;}
 .our-inner h3 {font-size: 20px; font-family: 'pretendard', sans-serif; font-weight: 400;}
 .our-inner .txt-box {width: 100%; height: 100%; }
 .our-inner .txt-box h2 {font-weight: 300; margin-bottom: 0; line-height: 100%; letter-spacing: -0.03em;}
@@ -435,13 +438,13 @@ header.hide {transform: translateY(-100%);}
   margin: 0 5px 16px 0;
 }
 
-.our-inner .txt-box p.txt {margin-top: 110px; color: #747273; font-size: 18px; }
-.our-inner .txt-box .bottom p.txt {margin-top: 30px; color: #747273; font-size: 18px;}
+.our-inner .txt-box p.txt {margin-top: 8vw; color: #747273; font-size: 1vw; }
+.our-inner .txt-box .bottom p.txt {margin-top: 3%; color: #747273; font-size: 1vw;}
 .our-inner .txt-box .top {position: absolute; top: 43px; left: 0; }
 .our-inner .txt-box .bottom {position: absolute; bottom: 0; right: 3.5%;}
 
 .our-inner .img-box {width: 100%; height: 100%;}
-.our-inner .img-box>div {position: absolute; display: flex; justify-content: space-between; width: 47%; align-items: end;}
+.our-inner .img-box>div {position: absolute; display: flex; justify-content: space-between; width: 39.5vw; align-items: end;}
 .our-inner .img-box .top {top: 0; right: 0;}
 .our-inner .img-box .bottom {bottom: 0; left: 0;}
 .our-inner .img-box .top .img.left {width: 37%;}
@@ -487,6 +490,28 @@ header.hide {transform: translateY(-100%);}
 .sherpa .sherpa-inner .mountain.animate.animated {opacity: 1;transform: translateY(0);}
 .sherpa .sherpa-inner .text.animate {opacity: 0; transform: translateY(20%); transition: all 2s cubic-bezier(0.33, 1, 0.68, 1);}
 .sherpa .sherpa-inner .text.animate.animated {opacity: 1;transform: translateY(0);transition-delay: 0.3s;}
+
+
+
+.topBtn {
+    background: #454554;
+    display: block;
+    width: 64px;
+    height: 64px;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/arrow.JPG);
+    background-repeat: no-repeat;
+    background-position: 50% 28%;
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    padding-top: 17px;
+    opacity: 0.5;
+}
 
 
 
