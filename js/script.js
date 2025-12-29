@@ -1,4 +1,4 @@
-$(document).on('click', 'a[href="#"]', function(e){
+$(document).on('click', 'a[href="#"]:not(.topBtn)', function(e){
     e.preventDefault();
 });
 

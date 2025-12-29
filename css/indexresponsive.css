@@ -308,7 +308,7 @@ button:focus {outline: none;}
 
     .moving-txt .marquee {font-size: 200px;}
 
-    .skin-concern {padding: 150px 0; height: 360vh;} 
+    .skin-concern {padding: 150px 0; height: 380vh;} 
     .skin-concern .concern-inner {width: 100%;}
     .skin-concern .concern-inner .text-box {width: 100%;}
     .skin-concern .concern-inner .text-box .tit .none::before {display: none;}

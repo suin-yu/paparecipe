@@ -1,6 +1,6 @@
 // a 태그 기본동작 막기
-$(document).on('click', 'a[href="#"]', function(e){
-  e.preventDefault();
+$(document).on('click', 'a[href="#"]:not(.topBtn)', function(e){
+    e.preventDefault();
 });
 
 // header footer
