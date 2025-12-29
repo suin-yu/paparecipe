@@ -287,6 +287,13 @@
  .history-inner ul li .txt-box a { width: 4.2vw; height: 4.2vw; }
  .history-inner ul li .txt-box a img {width: 100%;}
 
+  .history-inner ul li.y2025 .img {gap: 3%;}
+    .history-inner ul li.y2022 .img {gap: 3%;}
+    .history-inner ul li.y2016 .img {gap: 3%;}
+    .history-inner ul li.y2013 .img {gap: 3%;}
+    .history-inner ul li.y2012 .img {gap: 0;}
+
+
  /* 2025 */
  .history-inner ul li .txt-box a { transform: translate(-22.8vw, -18.7vw)}
  .history-inner ul li.y2025 .year {transform: translateX(-14%);}
@@ -339,7 +346,7 @@
     /* footer */
     footer .top::before {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%; z-index: -1;}
     footer .top h3 {padding-top: 100px; background: transparent; color: #EAEAEA;}
-    footer .bottom {padding: 355px 50px 100px 50px; position: relative;}
+    footer .bottom {padding: 355px 20px 100px 20px; position: relative;}
     footer .bottom .fo-ble {position: absolute; top: 20%; left: 30%; width: 303px; height: 170px;}
     footer .bottom ul.left {width: 100%;}
     footer .bottom ul li {font-size: 16px;}
@@ -352,7 +359,41 @@
 }
 
 @media screen and (max-width: 550px) { 
+
+  .introduce .introduce-inner h2 {font-size: 9.5vw;}
+  .introduce .introduce-inner p {font-size: 3.4vw;}
+
   .our {background: #F0E5E0; aspect-ratio: 550 / 2100;}
+
+  .story {padding: 0px 30px; }
+  .story .story-inner .text .txt:nth-child(1) {top: 9%; left: 41%;}
+  .story .story-inner .text .txt:nth-child(2) {top: 39.5%; left: 48.5%;}
+  .story .story-inner .text .txt:nth-child(3) {bottom: 23%; left: -4%;}
+
+  .history-inner ul li .txt-box h3 {font-size: 7.7vw;}
+  .history-inner ul li .txt-box p {font-size: 4.1vw;}
+  history-inner ul li .txt-box {width: 90%;}
+    .history-inner ul li .txt-box p {position: relative; margin-left: 5%;}
+    .history-inner ul li .txt-box p span {position: absolute; top: 9.5%;left: -5%; }
+    .history-inner ul li {padding-left: 15vw; width: 100%;}
+    .history-inner ul li.y2025 .img {gap: 3%;}
+    .history-inner ul li.y2022 .img {gap: 3%;}
+    .history-inner ul li.y2016 .img {gap: 3%;}
+    .history-inner ul li.y2013 .img {gap: 3%;}
+    .history-inner ul li.y2012 .img {gap: 0;}
+
+
+    .history-inner ul li.y2025 .txt-box a.circle { transform: translate(-31.2vw, -23vw)}
+    .history-inner ul li.y2022 .txt-box a.circle { transform: translate(-18.3vw, -27.3vw)}
+    .history-inner ul li.y2016 .txt-box a.circle { transform: translate(-20.3vw, -47vw)}
+    .history-inner ul li.y2013 .txt-box a.circle { transform: translate(-19vw, -20.3vw)}
+    .history-inner ul li.y2012 .txt-box a.circle { transform: translate(-18.8vw, -21.3vw)}
+    /* 선 */
+    .history-inner span.line {top: 7.5%!important; left: 7%!important; width: 0.1vw!important; height: 76.2%!important; transform: translateX(-50%)!important; }
+
+
+
+
 }
 
 
@@ -388,8 +429,8 @@
     .visual .visual-inner {column-gap: 30%;}
     .visual .visual-inner .middle {transform: scale(1.63) translateX(3%);}
     .visual .visual-inner .left_par, .visual .visual-inner .right_par {margin-top: 20%; transform: scale(1.2);}
-    .visual .visual-inner .left {column-gap: 58%;}
-    .visual .visual-inner .right {column-gap: 50%;}
+    .visual .visual-inner .left {column-gap: 30%;}
+    .visual .visual-inner .right {column-gap: 27%;}
 
 
     .introduce.first {padding:98px 0;}

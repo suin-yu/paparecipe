@@ -1,8 +1,3 @@
-// a 태그 기본동작 막기
-$(document).on('click', 'a[href="#"]:not(.topBtn)', function(e){
-    e.preventDefault();
-});
-
 // header footer
 window.addEventListener('load', () => {
   // 1. 헤더 로직
@@ -34,21 +29,29 @@ window.addEventListener('load', () => {
       );
   }})
   
-  // 마지막에 딱 한 번만 실행
-  ScrollTrigger.refresh();
+
+
+// a 태그 기본동작 막기
+$(document).on('click', 'a[href="#"]', function(e){
+  e.preventDefault();
+});
 
 $(function() {
+  // ---------------------------------
+  // 플러그인/라이브러리 체크
+  // ---------------------------------
+  if (window.gsap) gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
+
   // scrolla
-  $('.animate').scrolla({
-    mobile: true,
-    once: false
-  });
+  if ($.fn.scrolla) {
+    $('.animate').scrolla({
+      mobile: true,
+      once: false
+    });
+  }
 
   // Splitting
-  Splitting();
-
-  // GSAP
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
+  if (window.Splitting) Splitting();
 
   // ===============================
   // 메뉴 오픈 / 닫기
@@ -60,48 +63,9 @@ $(function() {
     $('.menuOpen .menuWrap').removeClass('on');
   });
 
-  // ===============================
-  // 헤더 고정 + 스크롤 방향에 따라 숨김/등장
-  // ===============================
-  (function () {
-    const header = document.querySelector('header');
-    if (!header) return;
-
-    let lastScrollY = window.scrollY;
-    const scrollTolerance = 5;
-    let ticking = false;
-
-    function updateHeader() {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY < 10) {
-        header.classList.remove('fixed-state', 'header-hidden');
-      } else {
-        header.classList.add('fixed-state');
-
-        if (currentScrollY > lastScrollY + scrollTolerance) {
-          header.classList.add('header-hidden');
-        } else if (currentScrollY < lastScrollY - scrollTolerance) {
-          header.classList.remove('header-hidden');
-        }
-      }
-
-      lastScrollY = currentScrollY;
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        window.requestAnimationFrame(updateHeader);
-        ticking = true;
-      }
-    });
-  })();
-
   
-
   // ======================================================
-  // middle_re 위치 계산 함수 ✅ (그대로 유지)
+  // ✅ middle_re 위치 계산 함수 (전역 노출 필요)
   // ======================================================
   function positionMiddleRe(widthRatio) {
     const visualInner = document.querySelector('.visual .visual-inner');
@@ -132,78 +96,85 @@ $(function() {
       transformOrigin: '50% 50%'
     });
   }
+  window.positionMiddleRe = positionMiddleRe;
+
 
   // ======================================================
-  // VISUAL (반응형 옵션별 생성) ✅ middle_re 로직 건드리지 않음
+  // VISUAL (반응형 옵션별 생성)
   // ======================================================
-  ScrollTrigger.matchMedia({
-    "(min-width: 1025px)": function () {
-      return buildVisual({
-        endPin: 2500,
-        endFrame: 2000,
-        frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}.png`),
-        natuScale: 2,
-        cipeScale: 1.6,
-        cipeMarginTop: '14%',
-        visualInner : { gap : '0%' },
-        middleReRatio: 0.7
-      });
-    },
+  if (window.ScrollTrigger) {
+    ScrollTrigger.matchMedia({
+      "(min-width: 1025px)": function () {
+        return buildVisual({
+          endPin: 2500,
+          endFrame: 2000,
+          frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}.png`),
+          natuScale: 2,
+          cipeScale: 1.6,
+          cipeMarginTop: '14%',
+          visualInner : { gap : '0%' },
+          middleReRatio: 0.7
+        });
+      },
 
-    "(min-width: 769px) and (max-width: 1024px)": function () {
-      return buildVisual({
-        endPin: 2000,
-        endFrame: 2000,
-        frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}.png`),
-        natuScale: 2.5,
-        cipeScale: 2.1,
-        cipeMarginTop: '17%',
-        visualInner : { gap : '0%' },
-        middleReRatio: 0.7
-      });
-    },
+      "(min-width: 769px) and (max-width: 1024px)": function () {
+        return buildVisual({
+          endPin: 2000,
+          endFrame: 2000,
+          frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}.png`),
+          natuScale: 2.5,
+          cipeScale: 2.1,
+          cipeMarginTop: '17%',
+          visualInner : { gap : '0%' },
+          middleReRatio: 0.7
+        });
+      },
 
-    "(min-width: 391px) and (max-width: 768px)": function () {
-      return buildVisual({
-        endPin: 2000,
-        endFrame: 2000,
-        frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}_768.png`),
-        natuScale: 2.5,
-        cipeScale: 2.1,
-        cipeMarginTop: '17%',
-        visualInner : { gap : '0%' },
-        middleReRatio: 0.8
-      });
-    },
+      "(min-width: 391px) and (max-width: 768px)": function () {
+        return buildVisual({
+          endPin: 2000,
+          endFrame: 2000,
+          frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}_768.png`),
+          natuScale: 2.5,
+          cipeScale: 2.1,
+          cipeMarginTop: '17%',
+          visualInner : { gap : '0%' },
+          middleReRatio: 0.8
+        });
+      },
 
-    "(max-width: 390px)": function () {
-      return buildVisual({
-        endPin: 2000,
-        endFrame: 2000,
-        frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}_390.png`),
-        natuScale: 3.8,
-        cipeScale: 3.4,
-        cipeMarginTop: '28%',
-        visualInner : { gap : '2.8%' },
-        middleReRatio: 0.7
-      });
-    }
-  });
+      "(max-width: 390px)": function () {
+        return buildVisual({
+          endPin: 2000,
+          endFrame: 2000,
+          frames: Array.from({length:18}, (_,i)=>`img/brandstory/visual_${i+1}_390.png`),
+          natuScale: 2.6,
+          cipeScale: 2.3,
+          cipeMarginTop: '28%',
+          visualInner : { gap : '3.5%' },
+          middleReRatio: 0.7
+        });
+      }
+    });
+  }
+
 
   // ======================================================
-  // VISUAL 타임라인 생성 함수 ✅ (그대로 유지)
+  // ✅ VISUAL 타임라인 생성 함수
+  // ✅ 수정 1) getAll kill 제거 → Visual만 정확히 cleanup
   // ======================================================
   function buildVisual(opt) {
     const middleImg = document.getElementById('changeImg');
-    if (!middleImg) return;
+    if (!middleImg || !window.gsap || !window.ScrollTrigger) return;
+
+    // ✅ (수정) Visual만 정확히 cleanup (리사이즈 연타 시 레이스 방지)
+    if (window.__killVisual) {
+      window.__killVisual();
+      window.__killVisual = null;
+    }
 
     const frames = opt.frames;
     const frameCount = frames.length;
-
-    // 기존 visual ST 제거
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.vars && st.vars.trigger === ".visual") st.kill();
-    });
 
     // 초기 이미지
     middleImg.setAttribute('src', frames[0]);
@@ -221,7 +192,10 @@ $(function() {
 
     const ratio = (typeof opt.middleReRatio === 'number') ? opt.middleReRatio : 0.25;
 
-    // 시작 위치 한번 보정
+    // ratio 저장 (refresh 후 보정용)
+    window.__visualMiddleReRatio = ratio;
+
+    // 시작 위치 보정
     positionMiddleRe(ratio);
 
     const tl = gsap.timeline({
@@ -291,13 +265,13 @@ $(function() {
 
     tl.fromTo('.visual .visual-inner .left',
       { scale: 1.2, transformOrigin: '50% 50%' },
-      { scale: 0.7, marginLeft: '150px', duration: 0.7, ease: 'none' },
+      { scale: 0.7, marginLeft: '9%', duration: 0.7, ease: 'none' },
       0.3
     );
 
     tl.fromTo('.visual .visual-inner .right',
       { scale: 1.2, transformOrigin: '50% 50%' },
-      { scale: 0.7, marginRight: '150px', duration: 0.7, ease: 'none' },
+      { scale: 0.7, marginRight: '10%', duration: 0.7, ease: 'none' },
       0.3
     );
 
@@ -316,15 +290,28 @@ $(function() {
       }
     });
 
-    return () => {
-      frameST.kill();
-      tl.scrollTrigger.kill();
-      tl.kill();
+    function renderFrameByProgress() {
+      const p = frameST ? frameST.progress : 0;
+      const idx = Math.min(frameCount - 1, Math.max(0, Math.round(p * (frameCount - 1))));
+      const src = frames[idx];
+      if (middleImg.getAttribute('src') !== src) middleImg.setAttribute('src', src);
+    }
+    window.__visualRenderFrame = renderFrameByProgress;
+    renderFrameByProgress();
+
+    // ✅ (수정) Visual만 정확히 죽이는 cleanup을 전역 저장
+    window.__killVisual = () => {
+      frameST && frameST.kill(true);
+      tl && tl.scrollTrigger && tl.scrollTrigger.kill(true);
+      tl && tl.kill();
     };
+
+    return window.__killVisual;
   }
 
+
   // ======================================================
-  // CHANGE TURN IMAGE ✅ (refresh는 여기서 절대 안 함)
+  // CHANGE TURN IMAGE (기존 유지: Visual middle img src 덮어쓰기 제거한 버전)
   // ======================================================
   function changeTurnImage() {
     var winW = $(window).width();
@@ -343,16 +330,13 @@ $(function() {
 
     if (winW <= 768) {
       $('.bombee .bombee-inner .veo video').attr('src', 'img/bombee_768.mp4');
-      $('.visual .middle img').attr('src', 'img/brandstory/visual_1_768.png');
-    } else {
-      $('.visual .middle img').attr('src', 'img/brandstory/visual_1.png');
+      // $('.visual .middle img') 건드리지 않음
     }
 
     if (winW <= 390) {
       $('.history-inner ul li.y2022 .img a.left img').attr('src', 'img/history_2022_2.png');
       $('.history-inner ul li.y2022 .img a.right img').attr('src', 'img/history_2022_1.png');
       $('.bombee .bombee-inner .veo video').attr('src', 'img/bombee_390.mp4');
-      $('.visual .middle img').attr('src', 'img/brandstory/visual_1_390.png');
 
       $('.introduce.first .txt').html(
         '<span class="fff">Natu(re)cipe</span>는 자연이 가진 본래의 흐름을 다시<span class="fff">(re)</span><br>' +
@@ -388,16 +372,40 @@ $(function() {
 
   changeTurnImage();
   $(window).on('resize', function() {
-    changeTurnImage(); // ✅ refresh는 공통 resize fix가 처리
+    changeTurnImage(); // refresh는 아래 Resize Fix가 "끝나고 1번만"
   });
 
 });
 
 
 // ===============================
-// HISTORY ✅ 전체 복붙용 (원본 유지)
+// footer clipPath 애니메이션 (기존 유지)
+// ===============================
+window.addEventListener('load', () => {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  const footerH3 = document.querySelector('footer .top h3');
+  if (footerH3) {
+    gsap.fromTo(
+      footerH3,
+      { webkitClipPath: "inset(0% 100% 0% 0%)", clipPath: "inset(0% 100% 0% 0%)" },
+      {
+        clipPath: "inset(0% 0% 0% 0%)",
+        webkitClipPath: "inset(0% 0% 0% 0%)",
+        duration: 0.8,
+        scrollTrigger: { trigger: "footer", start: "top 80%" }
+      }
+    );
+  }
+}, { once: true });
+
+
+// ===============================
+// HISTORY (원본 유지)
 // ===============================
 $(function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
   const section = document.querySelector(".history");
@@ -512,18 +520,17 @@ $(function () {
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      // 여기서 refresh는 공통 resize fix가 해도 되지만,
-      // line 위치 즉시 보정이 필요해서 sync만 가볍게 호출
       requestAnimationFrame(syncLine);
     }, 150);
-  });
+  }, { passive: true });
 });
 
 
 // ===============================
-// 배경색 타임라인 (기존 유지, refresh 제거)
+// 배경색 타임라인 (기존 유지)
 // ===============================
 window.addEventListener('load', () => {
+  if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
   ScrollTrigger.matchMedia({
@@ -563,43 +570,46 @@ window.addEventListener('load', () => {
 
 
 // ===============================
-// ✅ GSAP / ScrollTrigger Resize Fix (안정 버전 1개만)
+// ✅ Resize Fix (수정 2) : 리사이즈 끝나고 1번만 refresh (연타 멈춤 방지)
 // ===============================
 $(function () {
   if (!window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
 
-  let t = null;
-  let lastW = window.innerWidth;
-  let lastH = window.innerHeight;
+  let resizeTimer = null;
 
-  function safeRefresh() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const dw = Math.abs(w - lastW);
-    const dh = Math.abs(h - lastH);
+  function afterResizeRefresh() {
+    // ✅ 딱 1번만 refresh
+    ScrollTrigger.refresh(true);
 
-    if (dw < 2 && dh < 2) return;
-
-    lastW = w; lastH = h;
-
+    // ✅ refresh 후 보정 (middle_re + frame)
+    const r = (typeof window.__visualMiddleReRatio === "number") ? window.__visualMiddleReRatio : 0.25;
     requestAnimationFrame(() => {
-      ScrollTrigger.refresh(true);
+      window.positionMiddleRe && window.positionMiddleRe(r);
+      window.__visualRenderFrame && window.__visualRenderFrame();
     });
   }
 
-  function debounceRefresh(delay) {
-    clearTimeout(t);
-    t = setTimeout(safeRefresh, delay);
-  }
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(afterResizeRefresh, 450);
+  }, { passive: true });
 
-  window.addEventListener("resize", () => debounceRefresh(200), { passive: true });
-  window.addEventListener("orientationchange", () => debounceRefresh(350), { passive: true });
+  window.addEventListener("orientationchange", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(afterResizeRefresh, 600);
+  }, { passive: true });
 
-  window.addEventListener("load", () => debounceRefresh(0), { once: true });
+  window.addEventListener("load", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(afterResizeRefresh, 0);
+  }, { once: true });
 
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => debounceRefresh(0));
+    document.fonts.ready.then(() => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(afterResizeRefresh, 0);
+    });
   }
 });
