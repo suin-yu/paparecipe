@@ -441,6 +441,7 @@ header.hide {transform: translateY(-100%);}
 .our-inner .txt-box p.txt {margin-top: 8vw; color: #747273; font-size: 1vw; }
 .our-inner .txt-box .bottom p.txt {margin-top: 3%; color: #747273; font-size: 1vw;}
 .our-inner .txt-box .top {position: absolute; top: 43px; left: 0; }
+.our-inner .txt-box .top p.txt {letter-spacing: -3%;}
 .our-inner .txt-box .bottom {position: absolute; bottom: 0; right: 3.5%;}
 
 .our-inner .img-box {width: 100%; height: 100%;}

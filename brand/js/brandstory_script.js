@@ -1,4 +1,11 @@
-
+// 팝업
+  function showPopup() {
+    const url = "popup/imgBy.html";
+    const name = "이미지출처";
+    const specs = "width=680, height=600, left=200, top=100";
+    
+    window.open(url, name, specs);
+}
 
 
 // header footer
@@ -14,14 +21,6 @@ window.addEventListener('load', () => {
       lastY = currY;
   }, { passive: true });
 
-// 팝업
-  function showPopup() {
-    const url = "../popup/imgBy.html";
-    const name = "이미지출처";
-    const specs = "width=680, height=600, left=200, top=100";
-    
-    window.open(url, name, specs);
-}
 
   // 2. 푸터 로직
   const footerH3 = document.querySelector('footer .top h3');
@@ -337,7 +336,7 @@ $(function() {
     } else {
       $('.bombee .bombee-inner .veo video').attr('src', 'img/bombee_1920.mp4');
       $('.our-inner .txt-box .top p').html(
-        '우리가 지키는 것은 피부 한 겹이 아닙니다.<br>자연이 다시 호흡할 수 있는 귑형, 그리고 다음 세대를 위한 환경입니다.<br>파파레서피는 자연에서 얻은 것을 다시 자연으로 돌려주는 순환의 가치를 추구하며,<br>재활용 가능한 패키지와 책임 있는 원료 채집, 친환경 공정을 꾸준히 실천합니다.<br>이 모든 노력이 결국, 오래도록 남아야 할 품질과 가치를 완성합니다.'
+        '우리가 지키는 것은 피부 한 겹이 아닙니다.<br>자연이 다시 호흡할 수 있는 균형, 그리고 다음 세대를 위한 환경입니다.<br>파파레서피는 자연에서 얻은 것을 다시 자연으로 돌려주는 순환의 가치를 추구하며,<br>재활용 가능한 패키지와 책임 있는 원료 채집, 친환경 공정을 꾸준히 실천합니다.<br>이 모든 노력이 결국, 오래도록 남아야 할 품질과 가치를 완성합니다.'
       );
     }
 
